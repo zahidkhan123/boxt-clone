@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -10,8 +10,10 @@ import { ItemCard } from "./components/ItemCard";
 import { ServiceCard } from "./components/ServiceCard";
 import boilerImage from "./assets/boxtlife.avif";
 import boilerImage2 from "./assets/freeHive.avif";
-function App() {
-  const [count, setCount] = useState(0);
+import Footer from "./components/footer";
+import PriceMatchSection from "./components/PriceMatchSection";
+import BoxSteps from "./components/Boxstep";
+  function App() {
 
   return (
     <>
@@ -124,7 +126,11 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="card">
+      <BoxSteps />
+      <PriceMatchSection />
+      <Footer />
+    
+      {/* <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
@@ -134,7 +140,7 @@ function App() {
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p>
+      </p> */}
     </>
   );
 }
