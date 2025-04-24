@@ -1,0 +1,13 @@
+.topbar {
+    background: linear-gradient(to right, #f3e9e9, #efe5e5);
+  }
+  
+  .help-btn {
+    border: 1px solid #d1d1d1;
+    background-color: transparent;
+  }
+  
+  .btn-link {
+    text-decoration: none;
+  }
+  

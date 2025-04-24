@@ -11,28 +11,31 @@ import PriceMatchSection from "./PriceMatchSection";
 import BoxSteps from "./Boxstep";
 import "../App.css";
 import { FaCheckCircle } from "react-icons/fa";
+import BottomNav from "./bottomNav/BottomNav";
+import Navbar from "./Navbar/Navbar";
 function Home() {
   return (
     <>
       <div
         className="text-center border-bottom  px-0"
-        style={{
+        style={{  
           background: "linear-gradient(to bottom, #000000, #434343)",
           color: "white",
         }}
       >
-        <div className="container">
+       
+        <div className="container py-1">
           <div className="animate-text">
             <div className="text-container">
-              <p className="mb-0">
+              <p className="mb-0 small">
                 <FaCheckCircle className="me-2" />
                 Over 150,000 BOXT customers
               </p>
-              <p className="mb-0">
+              <p className="mb-0 small">
                 <FaCheckCircle className="me-2" />
                 Order by 3pm for Next Working Day installation
               </p>
-              <p className="mb-0">
+              <p className="mb-0 small">
                 <FaCheckCircle className="me-2" />
                 Rated Excellent on Trustpilot
               </p>
@@ -62,6 +65,8 @@ function Home() {
             }
           `}
         </style>
+        <Navbar />
+        <BottomNav />
       </div>
       {/* <CarouselSlider />
       <div className="col-12">
