@@ -18,12 +18,11 @@ function Home() {
     <>
       <div
         className="text-center border-bottom  px-0"
-        style={{  
+        style={{
           background: "linear-gradient(to bottom, #000000, #434343)",
           color: "white",
         }}
       >
-       
         <div className="container py-1">
           <div className="animate-text">
             <div className="text-container">
@@ -66,7 +65,36 @@ function Home() {
           `}
         </style>
         <Navbar />
-        <BottomNav />
+
+        {/* <BottomNav /> */}
+      </div>
+      <div className="">
+        <h2 className="text-center text-dark">Our partners</h2>
+        <CarouselSlider />
+      </div>
+      <div className="container d-flex justify-content-center">
+        <div className="row">
+          <div className="col-md-6">
+            <ServiceCard
+              title="Buy a boiler"
+              description="A-rated boilers installed from £1,795, including up to 10 year manufacturer backed warranties"
+              image={boilerImage}
+              button1Text="Get a fixed price"
+              button2Text="Find out more"
+              showButtons={true}
+            />
+          </div>
+          <div className="col-md-6">
+            <ServiceCard
+              title="Buy a boiler"
+              description="A-rated boilers installed from £1,795, including up to 10 year manufacturer backed warranties"
+              image={boilerImage2}
+              button1Text="Get a fixed price"
+              button2Text="Find out more"
+              showButtons={false}
+            />
+          </div>
+        </div>
       </div>
       {/* <CarouselSlider />
       <div className="col-12">

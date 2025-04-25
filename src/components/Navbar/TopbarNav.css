@@ -1,13 +1,26 @@
 .topbar {
-    background: linear-gradient(to right, #f3e9e9, #efe5e5);
-  }
-  
-  .help-btn {
-    border: 1px solid #d1d1d1;
-    background-color: transparent;
-  }
-  
-  .btn-link {
-    text-decoration: none;
-  }
-  
+  background: linear-gradient(to right, #f3e9e9, #efe5e5);
+}
+
+.help-btn {
+  border: 1px solid #d1d1d1;
+  background-color: transparent;
+}
+
+.btn-link {
+  text-decoration: none;
+}
+/* Assume navbar height is around 70px */
+.custom-modal-backdrop {
+  position: fixed;
+  top: 100px; /* Adjust this if your navbar height is different */
+  left: 0;
+  width: 100%;
+  height: calc(100% - 100px); /* So it doesn't overlap the navbar */
+  backdrop-filter: blur(6px);
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1050;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}

@@ -11,11 +11,11 @@ export const ServiceCard = ({
 }) => {
   return (
     <div
-      className="card p-3 shadow-sm border-0 h-100"
+      className="card shadow-sm border-0 h-100"
       style={{
         backgroundColor: showButtons ? "#e8f5e9" : "#e3f2fd",
         margin: "auto",
-        minHeight: "100vh",
+        minHeight: "90vh",
         height: "auto",
       }}
     >

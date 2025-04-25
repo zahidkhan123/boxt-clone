@@ -1,6 +1,17 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import brandimage1 from "../../assets/brandimage1.svg";
+import brandimage2 from "../../assets/brandimage2.svg";
+import brandimage3 from "../../assets/brandimage3.svg";
+import brandimage4 from "../../assets/brandimage4.svg";
+import brandimage5 from "../../assets/brandimage5.svg";
+import brandimage6 from "../../assets/brandimage6.svg";
+import brandimage7 from "../../assets/brandimage7.svg";
+import brandimage8 from "../../assets/brandimage8.svg";
+import brandimage9 from "../../assets/brandimage9.svg";
+import brandimage10 from "../../assets/brandimage10.svg";
+import brandimage11 from "../../assets/brandimage11.svg";
 
 export const CarouselSlider = () => {
   const settings = {
@@ -55,44 +66,63 @@ export const CarouselSlider = () => {
   const brandLogos = [
     {
       id: 1,
-      image:
-        "https://boxt-bcms.imgix.net/B0Feps0Qga9RUYnivE8A?auto=format&q=80&w=384",
+      image: brandimage1,
       alt: "Google",
     },
     {
       id: 2,
-      image:
-        "https://boxt-bcms.imgix.net/B0Feps0Qga9RUYnivE8A?auto=format&q=80&w=384",
+      image: brandimage2,
       alt: "IBM",
     },
     {
       id: 3,
-      image:
-        "https://boxt-bcms.imgix.net/B0Feps0Qga9RUYnivE8A?auto=format&q=80&w=384",
+      image: brandimage3,
       alt: "Microsoft",
     },
     {
       id: 4,
-      image:
-        "https://boxt-bcms.imgix.net/B0Feps0Qga9RUYnivE8A?auto=format&q=80&w=384",
+      image: brandimage4,
       alt: "Apple",
     },
     {
       id: 5,
-      image:
-        "https://boxt-bcms.imgix.net/B0Feps0Qga9RUYnivE8A?auto=format&q=80&w=384",
+      image: brandimage5,
       alt: "AWS",
     },
     {
       id: 6,
-      image:
-        "https://boxt-bcms.imgix.net/B0Feps0Qga9RUYnivE8A?auto=format&q=80&w=384",
+      image: brandimage6,
+      alt: "Intel",
+    },
+    {
+      id: 7,
+      image: brandimage7,
+      alt: "Intel",
+    },
+    {
+      id: 8,
+      image: brandimage8,
+      alt: "Intel",
+    },
+    {
+      id: 9,
+      image: brandimage9,
+      alt: "Intel",
+    },
+    {
+      id: 10,
+      image: brandimage10,
+      alt: "Intel",
+    },
+    {
+      id: 11,
+      image: brandimage11,
       alt: "Intel",
     },
   ];
 
   return (
-    <div className="brand-carousel">
+    <div className="brand-carousel mt-3">
       <Slider {...settings}>
         {brandLogos.map((brand) => (
           <div key={brand.id} className="brand-slide">
