@@ -1,4 +1,5 @@
 import React from "react";
+import { CustomButton } from "../customButton";
 
 export const ItemCard = ({
   category,
@@ -7,21 +8,23 @@ export const ItemCard = ({
   buttonText,
   image,
   buttonVariant = "success",
-  buttonLink = "#",
 }) => {
   return (
-    <div className="card shadow-sm border-0 h-100">
+    <div className="card border-0 h-100" style={{ backgroundColor: "#F5F7F9" }}>
       <div className="card-body">
         <div className="row g-0 align-items-center">
           <div className="col-md-8 text-start">
             <p className="text-uppercase fw-bold text-muted small mb-1">
               {category}
             </p>
-            <h5 className="fw-bold">{title}</h5>
+            <h5 className="fw-bold mt-3">{title}</h5>
             <p className="text-muted">{description}</p>
-            <a
-              href={buttonLink}
-              className={`btn btn-${buttonVariant}`}
+            <CustomButton
+              backgroundColor={
+                buttonVariant === "success" ? "#00A56F" : "#007bff"
+              }
+              textColor="white"
+              text={buttonText}
               onMouseEnter={(e) => {
                 e.currentTarget.closest(
                   ".card"
@@ -32,9 +35,7 @@ export const ItemCard = ({
               onMouseLeave={(e) => {
                 e.currentTarget.closest(".card").style.backgroundColor = "";
               }}
-            >
-              {buttonText}
-            </a>
+            />
           </div>
           {image && (
             <div className="col-md-4 text-center">
@@ -42,7 +43,7 @@ export const ItemCard = ({
                 src={image}
                 alt="illustration"
                 className="img-fluid"
-                style={{ maxHeight: "150px", maxWidth: "150px" }}
+                style={{ maxHeight: "220px", maxWidth: "220px" }}
               />
             </div>
           )}

@@ -13,6 +13,13 @@ import "../App.css";
 import { FaCheckCircle } from "react-icons/fa";
 import BottomNav from "./bottomNav/BottomNav";
 import Navbar from "./Navbar/Navbar";
+import airConditioningImage from "../assets/airConditinoning.avif";
+import batteryStorageImage from "../assets/battryStorage.avif";
+import boilerServicingImage from "../assets/boilerServer.avif";
+import electricVehicleImage from "../assets/electricvehiclecharger.avif";
+import serviceImage from "../assets/serviceImage.avif";
+import solarbattry from "../assets/solarbattry.avif";
+import { HowItWorks } from "./HowItWork";
 function Home() {
   return (
     <>
@@ -68,6 +75,7 @@ function Home() {
 
         {/* <BottomNav /> */}
       </div>
+
       <div className="">
         <h2 className="text-center text-dark">Our partners</h2>
         <CarouselSlider />
@@ -78,124 +86,98 @@ function Home() {
             <ServiceCard
               title="Buy a boiler"
               description="A-rated boilers installed from £1,795, including up to 10 year manufacturer backed warranties"
-              image={boilerImage}
-              button1Text="Get a fixed price"
-              button2Text="Find out more"
-              showButtons={true}
-            />
-          </div>
-          <div className="col-md-6">
-            <ServiceCard
-              title="Buy a boiler"
-              description="A-rated boilers installed from £1,795, including up to 10 year manufacturer backed warranties"
               image={boilerImage2}
               button1Text="Get a fixed price"
               button2Text="Find out more"
-              showButtons={false}
+              buttonTextColor="black"
+              buttonColor="white"
+              backgroundColor="#Fb6058"
+              cardHeadingColor="white"
+              cardDesColor="white"
+              cardHeading="BOILERS"
             />
           </div>
-        </div>
-      </div>
-      {/* <CarouselSlider />
-      <div className="col-12">
-        <div className="row">
           <div className="col-md-6">
             <ServiceCard
-              title="Buy a boiler"
-              description="A-rated boilers installed from £1,795, including up to 10 year manufacturer backed warranties"
+              title="All-inclusive worry-free boiler plan"
+              backgroundColor="#F5F7F9"
+              description="New boiler + annual servicing + unlimited repairs or replacement from only £33.35 a month"
               image={boilerImage}
               button1Text="Get a fixed price"
-              button2Text="Find out more"
-              showButtons={true}
-            />
-          </div>
-          <div className="col-md-6">
-            <ServiceCard
-              title="Buy a boiler"
-              description="A-rated boilers installed from £1,795, including up to 10 year manufacturer backed warranties"
-              image={boilerImage2}
-              button1Text="Get a fixed price"
-              button2Text="Find out more"
-              showButtons={false}
+              buttonColor="#00A56F"
+              buttonTextColor="white"
+              cardHeadingColor="black"
+              cardDesColor="black"
+              cardHeading="BOXT LIFE"
             />
           </div>
         </div>
       </div>
-      <div className="container">
-        <div className="row">
-          <div className="col-md-6 mb-4">
-            <ItemCard
-              category="Boiler Servicing"
-              title="Protect your boiler warranty"
-              description="Protect your boiler warranty with a boiler service from HomeServe"
-              price={10}
-              buttonText="Find out more"
-              onClick={() => alert("More info clicked!")}
-            />
-          </div>
-          <div className="col-md-6 mb-4">
-            <ItemCard
-              category="Heating Cover"
-              title="Keep your home warm all year"
-              description="Get comprehensive heating cover from HomeServe"
-              price={12}
-              buttonText="Learn more"
-              onClick={() => alert("Heating info clicked!")}
-            />
-          </div>
-        </div>
-      </div>
+
       <div className="container py-4">
         <div className="row g-4">
           <div className="col-md-6">
             <ItemCard
-              category="Battery Storage"
-              title="Store & save with a home battery"
-              description="Add a battery to your existing solar panels or get a standalone battery to power your home & car with low cost electricity"
-              buttonText="Get a fixed price"
-              image={
-                "https://boxt-bcms.imgix.net/B0Feps0Qga9RUYnivE8A?auto=format&q=80&w=384"
-              }
+              category="SOLAR & BATTERY"
+              title="Buy one panel, get one FREE"
+              description="Get an instant online quote, plus a free solar design based on 3D mapping technology. Installed from £3,799"
+              buttonText="See how much you could save"
+              image={solarbattry}
             />
           </div>
           <div className="col-md-6">
             <ItemCard
-              category="Air Conditioning"
+              category="AIR CONDITIONING"
               title="Keep cool with home air conditioning"
-              description="Get air conditioning installed in your home as soon as tomorrow"
+              description="Get air conditioning installed in your home as soon as tomorrow. Save £200 on Daikin models while stock lasts."
               buttonText="Get a fixed price"
-              image={
-                "https://boxt-bcms.imgix.net/B0Feps0Qga9RUYnivE8A?auto=format&q=80&w=384"
-              }
+              image={airConditioningImage}
             />
           </div>
           <div className="col-md-6">
             <ItemCard
-              category="Boiler Servicing"
-              title="Protect your boiler warranty"
-              description="Protect your boiler warranty with a boiler service from HomeServe for £10 a month"
-              buttonText="Find out more"
-              image={
-                "https://boxt-bcms.imgix.net/B0Feps0Qga9RUYnivE8A?auto=format&q=80&w=384"
-              }
+              category="HEAT PUMPS"
+              title="Heat your home with fresh air"
+              description="Save £7,500 on a new heat pump and get it installed within 4 weeks. Prices from £3,299"
+              buttonText="Get a fixed price"
+              image={boilerServicingImage}
               buttonVariant="success"
             />
           </div>
           <div className="col-md-6">
             <ItemCard
-              category="Boiler Repair"
+              category="BATTERY STORAGE"
+              title="Store & save with a home battery"
+              description="Add a battery to your existing solar panels or get a standalone battery to power your home & car with low cost electricityt"
+              buttonText="Get a fixed price"
+              image={batteryStorageImage}
+              buttonVariant="success"
+            />
+          </div>
+          <div className="col-md-6">
+            <ItemCard
+              category="BOILER SERVICING"
+              title="Protect your boiler warranty"
+              description="Protect your boiler warranty with a boiler service from HomeServe for £10 a month"
+              buttonText="Find out more"
+              image={serviceImage}
+              buttonVariant="success"
+            />
+          </div>
+          <div className="col-md-6">
+            <ItemCard
+              category="BOILER REPAIR"
               title="Get a boiler repair visit for just £89"
               description="Enjoy a one-year workmanship guarantee and no upfront payment"
               buttonText="Book a repair"
-              image={
-                "https://boxt-bcms.imgix.net/B0Feps0Qga9RUYnivE8A?auto=format&q=80&w=384"
-              }
+              image={electricVehicleImage}
               buttonVariant="success"
             />
           </div>
         </div>
       </div>
-      <BoxSteps />
+      <HowItWorks />
+      {/* <BoxSteps />
       <PriceMatchSection />
       <Footer /> */}
     </>

@@ -9,11 +9,16 @@ import boilerPlan from "../../assets/boilerPlan.png";
 import boxtCar from "../../assets/boxtCar.png";
 import cardBoiler from "../../assets/cardBoiler.png";
 import financeOption from "../../assets/financeOption.svg";
-
+import serviceImage from "../../assets/serviceImage.avif";
+import { ModalCardStanderd } from "../modalcards/ModalCardStanderd";
+import bolderNav from "../../assets/boiler_nav.avif";
+import modalAc from "../../assets/modalAc.png";
+import hybridPump from "../../assets/hybridHeatpump.png";
+import grantWork from "../../assets/grantWork.png";
+import solarBattry from "../../assets/solar&battry.png";
 const TopbarNav = () => {
   const [showModal, setShowModal] = useState(false);
-  const [activeButton, setActiveButton] = useState("boilers"); // Track active button
-  const [isHovering, setIsHovering] = useState(false);
+  const [activeButton, setActiveButton] = useState("boilers");
 
   const handleModalToggle = () => {
     setShowModal(!showModal);
@@ -185,529 +190,144 @@ const TopbarNav = () => {
               )}
             </button>
           </div>
-          <div className="d-flex gap-4 justify-content-center mt-5">
-            <div
-              style={{
-                backgroundColor: "#Fb6058",
-                borderRadius: "8px",
-                padding: "20px",
-                width: "300px",
-                position: "relative",
-                overflow: "hidden",
-                height: "400px",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.querySelector("img").style.filter = "blur(5px)";
-                e.currentTarget.querySelector("img").style.opacity = "0.5";
-                e.currentTarget.querySelector(".hover-text").style.opacity =
-                  "1";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.querySelector("img").style.filter = "none";
-                e.currentTarget.querySelector("img").style.opacity = "1";
-                e.currentTarget.querySelector(".hover-text").style.opacity =
-                  "0";
-              }}
-            >
-              <div
-                style={{
-                  position: "relative",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                }}
-              >
-                <img
-                  src={boilerPlan}
-                  alt="Boiler"
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    transition: "filter 0.3s ease, opacity 0.3s ease",
-                  }}
-                />
-                <div
-                  className="hover-text"
-                  style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    textAlign: "center",
-                    color: "white",
-                    opacity: 0,
-                    transition: "opacity 0.3s ease",
-                  }}
-                >
-                  Get Started
-                </div>
-                <div
-                  style={{
-                    marginTop: "20px",
-                    color: "white",
-                  }}
-                >
-                  Buy a new boiler
-                  <p style={{ marginBottom: "10px" }}>
-                    Get your fixed price today
-                  </p>
-                </div>
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: "15px",
-                    right: "15px",
-                    backgroundColor: "white",
-                    color: "#F08080",
-                    borderRadius: "50%",
-                    width: "30px",
-                    height: "30px",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  &gt;
-                </div>
+          {activeButton === "boilers" && (
+            <div className="d-flex gap-4 justify-content-center mt-5">
+              <div style={{ width: "330px" }}>
+                <ModalCardStanderd image={bolderNav} />
               </div>
-            </div>
-            <div
-              style={{
-                backgroundColor: "#F1ffb0",
-                borderRadius: "8px",
-                padding: "20px",
-                width: "300px",
-                position: "relative",
-                overflow: "hidden",
-                height: "400px",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.querySelector("img").style.filter = "blur(5px)";
-                e.currentTarget.querySelector("img").style.opacity = "0.5";
-                e.currentTarget.querySelector(".hover-text").style.opacity =
-                  "1";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.querySelector("img").style.filter = "none";
-                e.currentTarget.querySelector("img").style.opacity = "1";
-                e.currentTarget.querySelector(".hover-text").style.opacity =
-                  "0";
-              }}
-            >
-              <div
-                style={{
-                  position: "relative",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                }}
-              >
-                <img
-                  src={boxtCar}
-                  alt="Boiler"
-                  style={{
-                    width: "100%",
-                    height: "auto",
-                    transition: "filter 0.3s ease, opacity 0.3s ease",
-                  }}
-                />
-                <div
-                  className="hover-text"
-                  style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                    textAlign: "center",
-                    color: "white",
-                    opacity: 0,
-                    transition: "opacity 0.3s ease",
-                  }}
-                >
-                  Get Started
-                </div>
-                <div
-                  style={{
-                    marginTop: "20px",
-                    color: "white",
-                  }}
-                >
-                  Buy a new car
-                  <p style={{ marginBottom: "10px" }}>
-                    Get your fixed price today
-                  </p>
-                </div>
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: "15px",
-                    right: "15px",
-                    backgroundColor: "white",
-                    color: "#F08080",
-                    borderRadius: "50%",
-                    width: "30px",
-                    height: "30px",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  &gt;
-                </div>
-              </div>
-            </div>
 
-            <div>
-              <div
-                style={{
-                  backgroundColor: "#e4f5ef",
-                  borderRadius: "8px",
-                  padding: "20px",
-                  width: "300px",
-                  position: "relative",
-                  overflow: "hidden",
-                  height: "190px",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.querySelector("img").style.filter =
-                    "blur(5px)";
-                  e.currentTarget.querySelector("img").style.opacity = "0.5";
-                  e.currentTarget.querySelector(".hover-text").style.opacity =
-                    "1";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.querySelector("img").style.filter = "none";
-                  e.currentTarget.querySelector("img").style.opacity = "1";
-                  e.currentTarget.querySelector(".hover-text").style.opacity =
-                    "0";
-                }}
-              >
-                <div
-                  style={{
-                    position: "relative",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                  }}
-                >
-                  <img
-                    src={boxtCar}
-                    alt="Boiler"
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                      transition: "filter 0.3s ease, opacity 0.3s ease",
-                    }}
-                  />
-                  <div
-                    className="hover-text"
-                    style={{
-                      position: "absolute",
-                      top: "50%",
-                      left: "50%",
-                      transform: "translate(-50%, -50%)",
-                      textAlign: "center",
-                      color: "white",
-                      opacity: 0,
-                      transition: "opacity 0.3s ease",
-                    }}
-                  >
-                    Get Started
-                  </div>
-                  <div
-                    style={{
-                      marginTop: "20px",
-                      color: "white",
-                    }}
-                  >
-                    Buy a new car
-                    <p style={{ marginBottom: "10px" }}>
-                      Get your fixed price today
-                    </p>
-                  </div>
-                  <div
-                    style={{
-                      position: "absolute",
-                      bottom: "15px",
-                      right: "15px",
-                      backgroundColor: "white",
-                      color: "#F08080",
-                      borderRadius: "50%",
-                      width: "30px",
-                      height: "30px",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    &gt;
-                  </div>
-                </div>
-              </div>{" "}
-              <div
-                style={{
-                  backgroundColor: "#e6f1f8",
-                  borderRadius: "8px",
-                  padding: "20px",
-                  width: "300px",
-                  position: "relative",
-                  overflow: "hidden",
-                  height: "190px",
-                  marginTop: "18px",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.querySelector("img").style.filter =
-                    "blur(5px)";
-                  e.currentTarget.querySelector("img").style.opacity = "0.5";
-                  e.currentTarget.querySelector(".hover-text").style.opacity =
-                    "1";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.querySelector("img").style.filter = "none";
-                  e.currentTarget.querySelector("img").style.opacity = "1";
-                  e.currentTarget.querySelector(".hover-text").style.opacity =
-                    "0";
-                }}
-              >
-                <div
-                  style={{
-                    position: "relative",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                  }}
-                >
-                  <img
-                    src={boxtCar}
-                    alt="Boiler"
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                      transition: "filter 0.3s ease, opacity 0.3s ease",
-                    }}
-                  />
-                  <div
-                    className="hover-text"
-                    style={{
-                      position: "absolute",
-                      top: "50%",
-                      left: "50%",
-                      transform: "translate(-50%, -50%)",
-                      textAlign: "center",
-                      color: "white",
-                      opacity: 0,
-                      transition: "opacity 0.3s ease",
-                    }}
-                  >
-                    Get Started
-                  </div>
-                  <div
-                    style={{
-                      marginTop: "20px",
-                      color: "white",
-                    }}
-                  >
-                    Buy a new car
-                    <p style={{ marginBottom: "10px" }}>
-                      Get your fixed price today
-                    </p>
-                  </div>
-                  <div
-                    style={{
-                      position: "absolute",
-                      bottom: "15px",
-                      right: "15px",
-                      backgroundColor: "white",
-                      color: "#F08080",
-                      borderRadius: "50%",
-                      width: "30px",
-                      height: "30px",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    &gt;
-                  </div>
-                </div>
+              <div>
+                <ModalCardStanderd
+                  backgroundColor="#e5fabb"
+                  textColor="#000"
+                  iconColor="#fff"
+                  title="All-inclusive boiler plan"
+                  subtitle="Get your fixed price today"
+                  buttonText="Get your fixed price"
+                />
+              </div>
+              <div>
+                <ModalCardStanderd
+                  image={boxtCar}
+                  backgroundColor="#fcf5f5"
+                  textColor="#000"
+                  iconColor="white"
+                  title="Book a repair"
+                  subtitle="Nect day repair visit for 89"
+                  minHeight="194px"
+                  maxWidth="285px"
+                  smallCard
+                />
+                <ModalCardStanderd
+                  backgroundColor="#fcf5f5"
+                  textColor="#000"
+                  iconColor="white"
+                  buttonText="Find out more"
+                  minHeight="194px"
+                  maxWidth="285px"
+                  marginTop="18px"
+                  smallCard
+                  backgroundImage
+                  image={serviceImage}
+                  title="Gas boiler service"
+                  subtitle="Protect your warrantly boiler servicing from HomeServe"
+                />
+              </div>
+              <div>
+                <ModalCardStanderd
+                  image={boxtCar}
+                  backgroundColor="#fcf5f5"
+                  textColor="#000"
+                  iconColor="green"
+                  title="Flexible finance options"
+                  subtitle="12 to 120 month plans available"
+                  minHeight="194px"
+                  maxWidth="285px"
+                  smallCard
+                />
+                <ModalCardStanderd
+                  backgroundColor="#fcf5f5"
+                  textColor="#000"
+                  iconColor="#fff"
+                  title="Talk to a heating expert"
+                  subtitle="Help when you need it most"
+                  buttonText="Find out more"
+                  minHeight="194px"
+                  maxWidth="285px"
+                  image={serviceImage}
+                  marginTop="18px"
+                  smallCard
+                  backgroundImage
+                />
               </div>
             </div>
-            <div className="">
-              <div
-                style={{
-                  backgroundColor: "#e6f1f8",
-                  borderRadius: "8px",
-                  padding: "20px",
-                  width: "300px",
-                  position: "relative",
-                  overflow: "hidden",
-                  height: "190px",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.querySelector("img").style.filter =
-                    "blur(5px)";
-                  e.currentTarget.querySelector("img").style.opacity = "0.5";
-                  e.currentTarget.querySelector(".hover-text").style.opacity =
-                    "1";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.querySelector("img").style.filter = "none";
-                  e.currentTarget.querySelector("img").style.opacity = "1";
-                  e.currentTarget.querySelector(".hover-text").style.opacity =
-                    "0";
-                }}
-              >
-                <div
-                  style={{
-                    position: "relative",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                  }}
-                >
-                  <img
-                    src={boxtCar}
-                    alt="Boiler"
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                      transition: "filter 0.3s ease, opacity 0.3s ease",
-                    }}
-                  />
-                  <div
-                    className="hover-text"
-                    style={{
-                      position: "absolute",
-                      top: "50%",
-                      left: "50%",
-                      transform: "translate(-50%, -50%)",
-                      textAlign: "center",
-                      color: "white",
-                      opacity: 0,
-                      transition: "opacity 0.3s ease",
-                    }}
-                  >
-                    Get Started
-                  </div>
-                  <div
-                    style={{
-                      marginTop: "20px",
-                      color: "white",
-                    }}
-                  >
-                    Buy a new car
-                    <p style={{ marginBottom: "10px" }}>
-                      Get your fixed price today
-                    </p>
-                  </div>
-                  <div
-                    style={{
-                      position: "absolute",
-                      bottom: "15px",
-                      right: "15px",
-                      backgroundColor: "white",
-                      color: "#F08080",
-                      borderRadius: "50%",
-                      width: "30px",
-                      height: "30px",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    &gt;
-                  </div>
-                </div>
+          )}
+          {(activeButton === "heatpumps" || activeButton === "solar") && (
+            <div className="d-flex gap-4 justify-content-center mt-5">
+              <div>
+                <ModalCardStanderd
+                  image={activeButton === "solar" ? solarBattry : modalAc}
+                  backgroundColor={
+                    activeButton === "solar" ? "#aae1ff" : "#00A56F"
+                  }
+                  textColor={activeButton === "solar" ? "#000" : "white"}
+                  iconColor={activeButton === "solar" ? "white" : "#000"}
+                  title={
+                    activeButton === "solar" ? "Solar & Battery" : "Heat pumps"
+                  }
+                  subtitle={
+                    activeButton === "solar"
+                      ? "Installed from only 3,799"
+                      : "Installed from only 5,595"
+                  }
+                  // buttonText="Get your fixed price"
+                  maxWidth="95%"
+                  fllWidth
+                  imageWidth="45%"
+                  // minHeight="300px"
+                />
               </div>
-              <div
-                style={{
-                  backgroundColor: "#e6f1f8",
-                  borderRadius: "8px",
-                  padding: "20px",
-                  width: "300px",
-                  position: "relative",
-                  overflow: "hidden",
-                  height: "190px",
-                  marginTop: "18px",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.querySelector("img").style.filter =
-                    "blur(5px)";
-                  e.currentTarget.querySelector("img").style.opacity = "0.5";
-                  e.currentTarget.querySelector(".hover-text").style.opacity =
-                    "1";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.querySelector("img").style.filter = "none";
-                  e.currentTarget.querySelector("img").style.opacity = "1";
-                  e.currentTarget.querySelector(".hover-text").style.opacity =
-                    "0";
-                }}
-              >
-                <div
-                  style={{
-                    position: "relative",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                  }}
-                >
-                  <img
-                    src={boxtCar}
-                    alt="Boiler"
-                    style={{
-                      width: "100%",
-                      height: "auto",
-                      transition: "filter 0.3s ease, opacity 0.3s ease",
-                    }}
-                  />
-                  <div
-                    className="hover-text"
-                    style={{
-                      position: "absolute",
-                      top: "50%",
-                      left: "50%",
-                      transform: "translate(-50%, -50%)",
-                      textAlign: "center",
-                      color: "white",
-                      opacity: 0,
-                      transition: "opacity 0.3s ease",
-                    }}
-                  >
-                    Get Started
-                  </div>
-                  <div
-                    style={{
-                      marginTop: "20px",
-                      color: "white",
-                    }}
-                  >
-                    Buy a new car
-                    <p style={{ marginBottom: "10px" }}>
-                      Get your fixed price today
-                    </p>
-                  </div>
-                  <div
-                    style={{
-                      position: "absolute",
-                      bottom: "15px",
-                      right: "15px",
-                      backgroundColor: "white",
-                      color: "#F08080",
-                      borderRadius: "50%",
-                      width: "30px",
-                      height: "30px",
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    &gt;
-                  </div>
-                </div>
+              <div>
+                <ModalCardStanderd
+                  backgroundColor="#E7F7F2"
+                  textColor="#000"
+                  iconColor="#fff"
+                  title="Hybrid heat pumps"
+                  subtitle="Installed from only 5,595"
+                  buttonText="Get your fixed price"
+                  image={hybridPump}
+                />
+              </div>
+              <div>
+                <ModalCardStanderd
+                  image={grantWork}
+                  backgroundColor="#fcf5f5"
+                  textColor="#000"
+                  iconColor="green"
+                  title="How the grant works"
+                  subtitle="Get 7,500 towards your heat pump"
+                  buttonText="Find out more"
+                  minHeight="194px"
+                  maxWidth="285px"
+                  smallCard
+                />
+                <ModalCardStanderd
+                  backgroundColor="#fcf5f5"
+                  textColor="#000"
+                  iconColor="#fff"
+                  title="Talk to a heating expert"
+                  subtitle="Help when you need it most"
+                  buttonText="Find out more"
+                  minHeight="194px"
+                  maxWidth="285px"
+                  image={serviceImage}
+                  marginTop="18px"
+                  smallCard
+                  backgroundImage
+                />
               </div>
             </div>
-          </div>
+          )}
         </div>
       )}
     </>
