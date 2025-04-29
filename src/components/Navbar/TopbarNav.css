@@ -1,6 +1,6 @@
-.topbar {
+/* .topbar {
   background: linear-gradient(to right, #f3e9e9, #efe5e5);
-}
+} */
 
 .help-btn {
   border: 1px solid #d1d1d1;
@@ -23,4 +23,27 @@
   /* display: flex;
   justify-content: center;
   align-items: center; */
+}
+.topbar {
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: black;
+  transition: background-color 0.3s ease;
+}
+
+/* .topbar .btn,
+.topbar .btn-link,
+.topbar .brand {
+  color: black !important;
+}
+
+.topbar .btn-light {
+  background-color: white;
+  border: 1px solid #ccc;
+  color: black;
+} */
+
+.topbar .btn-link:hover {
+  text-decoration: underline;
 }

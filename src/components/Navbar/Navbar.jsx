@@ -17,6 +17,7 @@ import hybridPump from "../../assets/hybridHeatpump.png";
 import grantWork from "../../assets/grantWork.png";
 import solarBattry from "../../assets/solar&battry.png";
 import video from "../../assets/boxtvideo.mp4";
+
 const TopbarNav = () => {
   const [showModal, setShowModal] = useState(false);
   const [activeButton, setActiveButton] = useState("boilers");
@@ -31,27 +32,30 @@ const TopbarNav = () => {
 
   return (
     <>
-      <div className="topbar px-5 py-2 d-flex justify-content-between align-items-center">
+      <div
+        className="topbar px-5 py-2 d-flex justify-content-between align-items-center position-absolute w-100"
+        style={{ zIndex: 1000 }}
+      >
         <div className="d-flex align-items-center gap-5">
-          <span className="brand text-danger fs-1">B O X T</span>
+          <span className="brand fs-1 text-white">B O X T</span>
 
           <button
-            className="btn btn-dark rounded-pill px-4 py-3 fs-6"
+            className="btn btn-light rounded-pill px-4 py-3 fs-6 text-dark"
             onClick={handleModalToggle}
           >
             Get a fixed price <span className="ms-1">&#9662;</span>
           </button>
 
-          <button className="btn btn-link text-dark fs-6 dropdown-toggle px-0">
+          <button className="btn btn-link text-light fs-6 dropdown-toggle px-0">
             Advice & FAQs
           </button>
 
-          <button className="btn btn-link text-dark fs-6 dropdown-toggle px-0">
+          <button className="btn btn-link text-light fs-6 dropdown-toggle px-0">
             About BOXT
           </button>
         </div>
 
-        <button className="btn rounded-pill px-4 py-2 help-btn d-flex align-items-center gap-2">
+        <button className="btn rounded-pill px-4 py-2 help-btn d-flex align-items-center gap-2 bg-white">
           <span className="text-dark">Help</span>
           <span className="text-dark fs-5">❓</span>
         </button>
