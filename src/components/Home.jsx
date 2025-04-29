@@ -20,11 +20,42 @@ import electricVehicleImage from "../assets/electricvehiclecharger.avif";
 import serviceImage from "../assets/serviceImage.avif";
 import solarbattry from "../assets/solarbattry.avif";
 import { HowItWorks } from "./HowItWork";
+import { useState, useEffect, useRef } from "react";
+const SCROLL_THRESHOLD = 200;
 function Home() {
+  const [showBottomNav, setShowBottomNav] = useState(true);
+  const lastScrollY = useRef(window.scrollY);
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+
+      // Scrolling down
+      if (
+        currentY > lastScrollY.current &&
+        currentY - lastScrollY.current > SCROLL_THRESHOLD
+      ) {
+        setShowBottomNav(false);
+        lastScrollY.current = currentY;
+      }
+
+      // Scrolling up
+      if (
+        currentY < lastScrollY.current &&
+        lastScrollY.current - currentY > SCROLL_THRESHOLD
+      ) {
+        setShowBottomNav(true);
+        lastScrollY.current = currentY;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       <div
-        className="text-center border-bottom  px-0"
+        className="text-center border-bottom px-0"
         style={{
           background: "linear-gradient(to bottom, #000000, #434343)",
           color: "white",
@@ -72,10 +103,10 @@ function Home() {
           `}
         </style>
         <Navbar />
-
-        {/* <BottomNav /> */}
+        {showBottomNav && <BottomNav />}
       </div>
 
+      {/* Rest of the component remains unchanged */}
       <div className="">
         <h2 className="text-center text-dark">Our partners</h2>
         <CarouselSlider />
@@ -177,9 +208,9 @@ function Home() {
         </div>
       </div>
       <HowItWorks />
-      {/* <BoxSteps />
+      <BoxSteps />
       <PriceMatchSection />
-      <Footer /> */}
+      <Footer />
     </>
   );
 }

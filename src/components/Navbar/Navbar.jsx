@@ -16,6 +16,7 @@ import modalAc from "../../assets/modalAc.png";
 import hybridPump from "../../assets/hybridHeatpump.png";
 import grantWork from "../../assets/grantWork.png";
 import solarBattry from "../../assets/solar&battry.png";
+import video from "../../assets/boxtvideo.mp4";
 const TopbarNav = () => {
   const [showModal, setShowModal] = useState(false);
   const [activeButton, setActiveButton] = useState("boilers");
@@ -55,7 +56,46 @@ const TopbarNav = () => {
           <span className="text-dark fs-5">❓</span>
         </button>
       </div>
+      <div className="container-fluid px-0 position-relative">
+        <div className="row">
+          <div className="col-12 position-relative">
+            <video
+              className="w-100"
+              autoPlay
+              muted
+              loop
+              style={{ height: "700px", objectFit: "cover" }}
+            >
+              <source src={video} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
 
+            <div
+              className="position-absolute"
+              style={{
+                top: "50%",
+                right: "10%",
+                transform: "translateY(-50%)",
+                backgroundColor: "white",
+                padding: "2rem",
+                borderRadius: "8px",
+                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                maxWidth: "400px",
+              }}
+            >
+              <ModalCardStanderd
+                backgroundColor="#E7F7F2"
+                textColor="#000"
+                iconColor="#fff"
+                title="Hybrid heat pumps"
+                subtitle="Installed from only 5,595"
+                buttonText="Get your fixed price"
+                image={hybridPump}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
       {showModal && (
         <div className="custom-modal-backdrop" onClick={handleModalToggle}>
           <div
