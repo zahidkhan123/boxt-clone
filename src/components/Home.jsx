@@ -54,57 +54,8 @@ function Home() {
 
   return (
     <>
-      <div
-        className="text-center border-bottom px-0"
-        style={{
-          background: "linear-gradient(to bottom, #000000, #434343)",
-          color: "white",
-        }}
-      >
-        <div className="container py-1">
-          <div className="animate-text">
-            <div className="text-container">
-              <p className="mb-0 small">
-                <FaCheckCircle className="me-2" />
-                Over 150,000 BOXT customers
-              </p>
-              <p className="mb-0 small">
-                <FaCheckCircle className="me-2" />
-                Order by 3pm for Next Working Day installation
-              </p>
-              <p className="mb-0 small">
-                <FaCheckCircle className="me-2" />
-                Rated Excellent on Trustpilot
-              </p>
-            </div>
-          </div>
-        </div>
-        <style>
-          {`
-            .text-container {
-              height: 24px;
-              position: relative;
-              overflow: hidden;
-            }
-            .animate-text p {
-              position: absolute;
-              width: 100%;
-              margin: 0;
-              opacity: 0;
-              animation: slideUp 15s infinite;
-            }
-            .animate-text p:nth-child(1) { animation-delay: 0s; }
-            .animate-text p:nth-child(2) { animation-delay: 5s; }
-            .animate-text p:nth-child(3) { animation-delay: 10s; }
-            @keyframes slideUp {
-              0%, 27% { opacity: 1; }
-              33%, 100% { opacity: 0; }
-            }
-          `}
-        </style>
-        <Navbar />
-        {showBottomNav && <BottomNav />}
-      </div>
+      <Navbar />
+      {showBottomNav && <BottomNav />}
 
       {/* Rest of the component remains unchanged */}
       <div className="">
