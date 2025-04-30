@@ -46,3 +46,19 @@
 .topbar .btn-link:hover {
   text-decoration: underline;
 }
+.boiler-card {
+  background-color: #24303F; /* Dark blue background */
+  max-width: 700px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.boiler-card .btn-success {
+  background-color: #3DBB7D;
+  border-color: #3DBB7D;
+}
+
+.boiler-card .btn-light {
+  color: #24303F;
+  background-color: #ffffff;
+  border: none;
+}

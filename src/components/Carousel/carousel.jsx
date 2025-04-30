@@ -17,7 +17,7 @@ export const CarouselSlider = () => {
   const settings = {
     arrows: false,
     infinite: true,
-    slidesToShow: 4,
+    slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,

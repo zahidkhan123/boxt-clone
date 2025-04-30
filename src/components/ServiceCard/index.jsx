@@ -38,13 +38,13 @@ export const ServiceCard = ({
 
   return (
     <div
-      className="card shadow-sm border-0 h-100"
+      className="card shadow-sm border-0 h-100 mt-5"
       style={{
         backgroundColor: isHovered
           ? getHoverBackgroundColor()
           : backgroundColor,
         margin: "auto",
-        minHeight: "90vh",
+        minHeight: "70vh",
         height: "auto",
         padding: "0px 30px",
         transition: "background-color 0.3s ease",
@@ -75,7 +75,7 @@ export const ServiceCard = ({
           {description}
         </p>
 
-        <div className="d-flex flex-wrap justify-content-start gap-2 mt-auto">
+        <div className="d-flex flex-wrap justify-content-start gap-2 mt-auto pb-4">
           {button1Text && (
             <div
               onMouseEnter={() => setIsHovered(true)}

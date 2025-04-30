@@ -58,7 +58,7 @@ function Home() {
       {showBottomNav && <BottomNav />}
 
       {/* Rest of the component remains unchanged */}
-      <div className="">
+      <div className="mt-5">
         <h2 className="text-center text-dark">Our partners</h2>
         <CarouselSlider />
       </div>
@@ -96,7 +96,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="container py-4">
+      <div className="container py-4 mt-5">
         <div className="row g-4">
           <div className="col-md-6">
             <ItemCard
@@ -158,7 +158,6 @@ function Home() {
           </div>
         </div>
       </div>
-      <HowItWorks />
       <BoxSteps />
       <PriceMatchSection />
       <Footer />

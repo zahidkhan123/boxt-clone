@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./TopbarNav.css";
 import boilers from "../../assets/boilers.png";
 import heatPumps from "../../assets/heatPump.png";
@@ -23,6 +23,17 @@ import { IoIosArrowDown } from "react-icons/io";
 const TopbarNav = () => {
   const [showModal, setShowModal] = useState(false);
   const [activeButton, setActiveButton] = useState("boilers");
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [showModal]);
 
   const handleModalToggle = () => {
     setShowModal(!showModal);
@@ -34,85 +45,98 @@ const TopbarNav = () => {
 
   return (
     <>
-      <div
-        className="text-center px-0"
-        style={{
-          background:
-            "linear-gradient(to bottom, #333, #1a1a1a, #333333, #4d4d4d, #666666)",
-          color: "white",
-        }}
-      >
-        <div className="container py-1">
-          <div className="animate-text">
-            <div className="text-container">
-              <p className="mb-0 small">
-                <FaCheckCircle className="me-2" />
-                Over 150,000 BOXT customers
-              </p>
-              <p className="mb-0 small">
-                <FaCheckCircle className="me-2" />
-                Order by 3pm for Next Working Day installation
-              </p>
-              <p className="mb-0 small">
-                <FaCheckCircle className="me-2" />
-                Rated Excellent on Trustpilot
-              </p>
+      <div className="container-fluid px-0 position-relative">
+        {/* Animated Text Slider */}
+        <div
+          className="position-absolute w-100 text-center"
+          style={{
+            zIndex: 1000,
+            background:
+              "linear-gradient(to bottom, rgb(25, 25, 25) 0%, rgba(55, 45, 45, 0.7) 50%, rgba(50, 27, 27, 0) 100%)",
+            color: "white",
+            marginBottom: "20px",
+            padding: "5px 0",
+          }}
+        >
+          <div className="container py-1">
+            <div className="animate-text">
+              <div className="text-container">
+                <p className="mb-0 small" style={{ fontSize: "12px" }}>
+                  <FaCheckCircle className="me-2" />
+                  Over 150,000 BOXT customers
+                </p>
+                <p className="mb-0 small" style={{ fontSize: "12px" }}>
+                  <FaCheckCircle className="me-2" />
+                  Order by 3pm for Next Working Day installation
+                </p>
+                <p className="mb-0 small" style={{ fontSize: "12px" }}>
+                  <FaCheckCircle className="me-2" />
+                  Rated Excellent on Trustpilot
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <style>
-          {`
-            .text-container {
-              height: 24px;
-              position: relative;
-              overflow: hidden;
-            }
-            .animate-text p {
-              position: absolute;
-              width: 100%;
-              margin: 0;
-              opacity: 0;
-              animation: slideUp 15s infinite;
-            }
-            .animate-text p:nth-child(1) { animation-delay: 0s; }
-            .animate-text p:nth-child(2) { animation-delay: 5s; }
-            .animate-text p:nth-child(3) { animation-delay: 10s; }
-            @keyframes slideUp {
-              0%, 27% { opacity: 1; }
-              33%, 100% { opacity: 0; }
-            }
-          `}
-        </style>
-      </div>
-      <div
-        className="topbar px-5 py-2 d-flex justify-content-between align-items-center position-absolute w-100"
-        style={{ zIndex: 1000 }}
-      >
-        <div className="d-flex align-items-center gap-5">
-          <span className="brand fs-1 text-white">B O X T</span>
-
-          <button
-            className="btn btn-light rounded-pill px-4 py-3 fs-6 text-dark"
-            onClick={handleModalToggle}
-          >
-            Get a fixed price <span className="ms-1">&#9662;</span>
-          </button>
-
-          <button className="btn btn-link text-light fs-6 dropdown-toggle px-0">
-            Advice & FAQs
-          </button>
-
-          <button className="btn btn-link text-light fs-6 dropdown-toggle px-0">
-            About BOXT
-          </button>
+          <style>
+            {`
+        .text-container {
+          height: 24px;
+          position: relative;
+          overflow: hidden;
+        }
+        .animate-text p {
+          position: absolute;
+          width: 100%;
+          margin: 0;
+          opacity: 0;
+          animation: slideUp 15s infinite;
+        }
+        .animate-text p:nth-child(1) { animation-delay: 0s; }
+        .animate-text p:nth-child(2) { animation-delay: 5s; }
+        .animate-text p:nth-child(3) { animation-delay: 10s; }
+        @keyframes slideUp {
+          0%, 27% { opacity: 1; }
+          33%, 100% { opacity: 0; }
+        }
+      `}
+          </style>
+          <hr className="mt-0" style={{ borderColor: "#fff" }} />
         </div>
 
-        <button className="btn rounded-pill px-4 py-2 help-btn d-flex align-items-center gap-2 bg-white">
-          <span className="text-dark">Help</span>
-          <span className="text-dark fs-5">❓</span>
-        </button>
-      </div>
-      <div className="container-fluid px-0 position-relative">
+        {/* Topbar */}
+        <div
+          className="topbar px-5 py-2 mt-3 d-flex justify-content-between align-items-center position-absolute w-100"
+          style={{
+            zIndex: 999,
+            backgroundColor: showModal ? "#606060" : "transparent",
+            top: "30px",
+          }}
+        >
+          <div className="d-flex align-items-center gap-5">
+            <span className="brand fs-1 text-white">B O X T</span>
+
+            <button
+              className="btn btn-light rounded-pill px-4 py-3 fs-6 text-dark"
+              onClick={handleModalToggle}
+            >
+              Get a fixed price <span className="ms-1">&#9662;</span>
+            </button>
+
+            <button className="btn btn-link text-light fs-6 dropdown-toggle px-0">
+              Advice & FAQs
+            </button>
+
+            <button className="btn btn-link text-light fs-6 dropdown-toggle px-0">
+              About BOXT
+            </button>
+          </div>
+
+          <button className="btn rounded-pill px-4 py-2 help-btn d-flex align-items-center gap-2 bg-white">
+            <span className="text-dark">Help</span>
+            <span className="text-dark fs-5">❓</span>
+          </button>
+        </div>
+
+        {/* Video and Boiler Card */}
         <div className="row">
           <div className="col-12 position-relative">
             <video
@@ -120,7 +144,7 @@ const TopbarNav = () => {
               autoPlay
               muted
               loop
-              style={{ height: "700px", objectFit: "cover" }}
+              style={{ height: "800px", objectFit: "cover" }}
             >
               <source src={video} type="video/mp4" />
               Your browser does not support the video tag.
@@ -132,40 +156,63 @@ const TopbarNav = () => {
                 top: "50%",
                 right: "10%",
                 transform: "translateY(-50%)",
-                backgroundColor: "white",
-                padding: "2rem",
-                borderRadius: "8px",
-                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                maxWidth: "400px",
               }}
             >
-              <ModalCardStanderd
-                backgroundColor="#E7F7F2"
-                textColor="#000"
-                iconColor="#fff"
-                title="Hybrid heat pumps"
-                subtitle="Installed from only 5,595"
-                buttonText="Get your fixed price"
-                image={hybridPump}
-              />
+              <div
+                className="boiler-card p-5 rounded-4 text-white"
+                style={{ maxWidth: "1000px" }}
+              >
+                <h2
+                  className="fw-bold mb-4 text-start"
+                  style={{ fontSize: "2.5rem" }}
+                >
+                  Fixed-price, next day
+                  <br />
+                  boiler installation
+                </h2>
+                <p className="mb-3 text-start" style={{ fontSize: "1.2rem" }}>
+                  Use code <strong>FREEHIVEMINI</strong> on any boiler order for
+                  a
+                  <br />
+                  <strong>free Hive Thermostat Mini</strong>. T&Cs apply
+                </p>
+                <div className="d-flex flex-column flex-md-row gap-3 justify-content-start mt-4">
+                  <button
+                    className="btn btn-success px-5 py-3 fw-medium"
+                    style={{ fontSize: "1.1rem" }}
+                  >
+                    Finish your quote
+                  </button>
+                  <button
+                    className="btn btn-light px-5 py-3 fw-medium"
+                    style={{ fontSize: "1.1rem" }}
+                  >
+                    Get your fixed price
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
       {showModal && (
         <div className="custom-modal-backdrop" onClick={handleModalToggle}>
           <div
-            className="d-flex gap-5 justify-content-center"
+            className="d-flex gap-5 justify-content-center w-100"
             style={{ marginTop: "2rem" }}
           >
             <button
               style={{
                 padding: "0px",
-                width: "240px",
-                color: activeButton === "boilers" ? "#5A2C38" : "#fff",
+                width: "300px",
+                height: "60px",
+                color: activeButton === "boilers" ? "#606060" : "#fff",
                 backgroundColor:
-                  activeButton === "boilers" ? "#fff" : "#5A2C38",
+                  activeButton === "boilers" ? "#fff" : "#606060",
                 position: "relative",
+                fontSize: "1.2rem",
+                fontWeight: "200",
               }}
               className="btn d-flex align-items-center"
               onClick={(e) => {
@@ -176,8 +223,8 @@ const TopbarNav = () => {
               <img
                 src={boilers}
                 alt="Boiler"
-                className="me-2"
-                style={{ width: "78px", height: "50px" }}
+                className="me-3"
+                style={{ width: "90px", height: "60px" }}
               />
               Boilers
               {activeButton === "boilers" && (
@@ -189,7 +236,7 @@ const TopbarNav = () => {
                     transform: "translateX(-50%)",
                   }}
                 >
-                  <IoIosArrowDown size={20} />
+                  <IoIosArrowDown size={24} />
                 </span>
               )}
             </button>
@@ -197,11 +244,14 @@ const TopbarNav = () => {
             <button
               style={{
                 padding: "0px",
-                width: "240px",
-                color: activeButton === "heatpumps" ? "#5A2C38" : "#fff",
+                width: "300px",
+                height: "60px",
+                color: activeButton === "heatpumps" ? "#606060" : "#fff",
                 backgroundColor:
-                  activeButton === "heatpumps" ? "#fff" : "#5A2C38",
+                  activeButton === "heatpumps" ? "#fff" : "#606060",
                 position: "relative",
+                fontSize: "1.2rem",
+                fontWeight: "200",
               }}
               className="btn d-flex align-items-center"
               onClick={(e) => {
@@ -212,10 +262,10 @@ const TopbarNav = () => {
               <img
                 src={heatPumps}
                 alt="Heat Pump"
-                className="me-2"
-                style={{ width: "78px", height: "50px" }}
+                className="me-3"
+                style={{ width: "90px", height: "60px" }}
               />
-              Heat Pumps
+              Heat pumps
               {activeButton === "heatpumps" && (
                 <span
                   style={{
@@ -225,7 +275,7 @@ const TopbarNav = () => {
                     transform: "translateX(-50%)",
                   }}
                 >
-                  <IoIosArrowDown size={20} />
+                  <IoIosArrowDown size={24} />
                 </span>
               )}
             </button>
@@ -233,10 +283,13 @@ const TopbarNav = () => {
             <button
               style={{
                 padding: "0px",
-                width: "240px",
-                color: activeButton === "solar" ? "#5A2C38" : "#fff",
-                backgroundColor: activeButton === "solar" ? "#fff" : "#5A2C38",
+                width: "300px",
+                height: "60px",
+                color: activeButton === "solar" ? "#606060" : "#fff",
+                backgroundColor: activeButton === "solar" ? "#fff" : "#606060",
                 position: "relative",
+                fontSize: "1.2rem",
+                fontWeight: "200",
               }}
               className="btn d-flex align-items-center"
               onClick={(e) => {
@@ -247,10 +300,10 @@ const TopbarNav = () => {
               <img
                 src={solar}
                 alt="Solar"
-                className="me-2"
-                style={{ width: "78px", height: "50px" }}
+                className="me-3"
+                style={{ width: "90px", height: "60px" }}
               />
-              Solar & Battery
+              Solar & battery
               {activeButton === "solar" && (
                 <span
                   style={{
@@ -260,7 +313,7 @@ const TopbarNav = () => {
                     transform: "translateX(-50%)",
                   }}
                 >
-                  <IoIosArrowDown size={20} />
+                  <IoIosArrowDown size={24} />
                 </span>
               )}
             </button>
@@ -268,10 +321,13 @@ const TopbarNav = () => {
             <button
               style={{
                 padding: "0px",
-                width: "240px",
-                color: activeButton === "ac" ? "#5A2C38" : "#fff",
-                backgroundColor: activeButton === "ac" ? "#fff" : "#5A2C38",
+                width: "300px",
+                height: "60px",
+                color: activeButton === "ac" ? "#606060" : "#fff",
+                backgroundColor: activeButton === "ac" ? "#fff" : "#606060",
                 position: "relative",
+                fontSize: "1.2rem",
+                fontWeight: "200",
               }}
               className="btn d-flex align-items-center"
               onClick={(e) => {
@@ -282,10 +338,10 @@ const TopbarNav = () => {
               <img
                 src={ac}
                 alt="AC"
-                className="me-2"
-                style={{ width: "78px", height: "50px" }}
+                className="me-3"
+                style={{ width: "90px", height: "60px" }}
               />
-              Air Conditioning
+              Air conditioning
               {activeButton === "ac" && (
                 <span
                   style={{
@@ -295,7 +351,7 @@ const TopbarNav = () => {
                     transform: "translateX(-50%)",
                   }}
                 >
-                  <IoIosArrowDown size={20} />
+                  <IoIosArrowDown size={24} />
                 </span>
               )}
             </button>
@@ -303,11 +359,14 @@ const TopbarNav = () => {
             <button
               style={{
                 padding: "0px",
-                width: "240px",
-                color: activeButton === "evcharger" ? "#5A2C38" : "#fff",
+                width: "300px",
+                height: "60px",
+                color: activeButton === "evcharger" ? "#606060" : "#fff",
                 backgroundColor:
-                  activeButton === "evcharger" ? "#fff" : "#5A2C38",
+                  activeButton === "evcharger" ? "#fff" : "#606060",
                 position: "relative",
+                fontSize: "1.2rem",
+                fontWeight: "200",
               }}
               className="btn d-flex align-items-center"
               onClick={(e) => {
@@ -317,11 +376,11 @@ const TopbarNav = () => {
             >
               <img
                 src={evCharger}
-                alt="EV Charger"
-                className="me-2"
-                style={{ width: "78px", height: "50px" }}
+                alt="EV charger"
+                className="me-3"
+                style={{ width: "90px", height: "60px" }}
               />
-              EV Chargers
+              EV chargers
               {activeButton === "evcharger" && (
                 <span
                   style={{
@@ -331,7 +390,7 @@ const TopbarNav = () => {
                     transform: "translateX(-50%)",
                   }}
                 >
-                  <IoIosArrowDown size={20} />
+                  <IoIosArrowDown size={24} />
                 </span>
               )}
             </button>
