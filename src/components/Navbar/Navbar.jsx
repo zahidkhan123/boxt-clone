@@ -19,6 +19,7 @@ import battrystorage from "../../assets/battrystorage.avif";
 import howitwork from "../../assets/howitwork.svg";
 import thunder from "../../assets/thunder.svg";
 import { IoIosArrowDown } from "react-icons/io";
+import Slider from "react-slick";
 
 const TopbarNav = () => {
   const [showModal, setShowModal] = useState(false);
@@ -41,6 +42,52 @@ const TopbarNav = () => {
 
   const handleButtonClick = (buttonId) => {
     setActiveButton(buttonId);
+  };
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024, // Tablet and below
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: false,
+        },
+      },
+      {
+        breakpoint: 768, // Mobile
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: false,
+        },
+      },
+    ],
+  };
+  const settings2 = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
 
   return (
@@ -197,15 +244,16 @@ const TopbarNav = () => {
       </div>
 
       {showModal && (
-        <div className="custom-modal-backdrop" onClick={handleModalToggle}>
+        // onClick={handleModalToggle}
+        <div className="custom-modal-backdrop">
           <div
-            className="d-flex gap-5 justify-content-center w-100"
-            style={{ marginTop: "2rem" }}
+            className="d-flex gap-3 justify-content-center align-items-center mt-2"
+            style={{ width: "93%" }}
           >
             <button
               style={{
                 padding: "0px",
-                width: "300px",
+                width: "21%",
                 height: "60px",
                 color: activeButton === "boilers" ? "#606060" : "#fff",
                 backgroundColor:
@@ -244,7 +292,7 @@ const TopbarNav = () => {
             <button
               style={{
                 padding: "0px",
-                width: "300px",
+                width: "21%",
                 height: "60px",
                 color: activeButton === "heatpumps" ? "#606060" : "#fff",
                 backgroundColor:
@@ -283,7 +331,7 @@ const TopbarNav = () => {
             <button
               style={{
                 padding: "0px",
-                width: "300px",
+                width: "21%",
                 height: "60px",
                 color: activeButton === "solar" ? "#606060" : "#fff",
                 backgroundColor: activeButton === "solar" ? "#fff" : "#606060",
@@ -321,7 +369,7 @@ const TopbarNav = () => {
             <button
               style={{
                 padding: "0px",
-                width: "300px",
+                width: "21%",
                 height: "60px",
                 color: activeButton === "ac" ? "#606060" : "#fff",
                 backgroundColor: activeButton === "ac" ? "#fff" : "#606060",
@@ -359,7 +407,7 @@ const TopbarNav = () => {
             <button
               style={{
                 padding: "0px",
-                width: "300px",
+                width: "21%",
                 height: "60px",
                 color: activeButton === "evcharger" ? "#606060" : "#fff",
                 backgroundColor:
@@ -400,14 +448,14 @@ const TopbarNav = () => {
             style={{
               backgroundColor: "rgba(128, 128, 128, 0.7)",
               backdropFilter: "blur(8px)",
+              width: "93%",
             }}
           >
             {activeButton === "boilers" && (
-              <div className="d-flex gap-5 justify-content-center ">
-                <div style={{ width: "330px" }}>
+              <Slider {...settings}>
+                <div>
                   <ModalCardStanderd image={bolderNav} />
                 </div>
-
                 <div>
                   <ModalCardStanderd
                     backgroundColor="#e5fabb"
@@ -445,6 +493,7 @@ const TopbarNav = () => {
                     subtitle="Protect your warrantly boiler servicing from HomeServe"
                   />
                 </div>
+
                 <div>
                   <ModalCardStanderd
                     image={boxtCar}
@@ -472,10 +521,11 @@ const TopbarNav = () => {
                     backgroundImage
                   />
                 </div>
-              </div>
+              </Slider>
             )}
+
             {(activeButton === "heatpumps" || activeButton === "solar") && (
-              <div className="d-flex gap-4 justify-content-center ">
+              <Slider {...settings2}>
                 <div>
                   <ModalCardStanderd
                     image={activeButton === "solar" ? solarBattry : modalAc}
@@ -541,48 +591,47 @@ const TopbarNav = () => {
                     backgroundImage
                   />
                 </div>
-              </div>
+              </Slider>
             )}
             {(activeButton === "ac" || activeButton === "evcharger") && (
-              <div className="d-flex gap-4 justify-content-center">
-                <div style={{ width: "44%" }}>
+              <Slider {...settings2}>
+                <div style={{ width: "200%" }}>
                   <ModalCardStanderd
                     image={serviceImage}
                     backgroundImage
-                    // backgroundColor={"#00A56F"}
                     textColor={"#000"}
                     iconColor={"#fff"}
                     title={"Heat pumps"}
                     subtitle={"Installed from only 5,595"}
-                    // buttonText="Get your fixed price"
-                    maxWidth="95%"
+                    maxWidth="350%"
                     fllWidth
-                    imageWidth="45%"
-                    // minHeight="300px"
                   />
                 </div>
-                <ModalCardStanderd
-                  backgroundColor="#E7F7F2"
-                  textColor="#000"
-                  iconColor="#fff"
-                  title="Hybrid heat pumps"
-                  subtitle="Installed from only 5,595"
-                  buttonText="Get your fixed price"
-                  image={activeButton === "evcharger" ? thunder : howitwork}
-                  imageWidth={activeButton === "evcharger" ? "50%" : "70%"}
-                />
-
-                <ModalCardStanderd
-                  backgroundColor="#E7F7F2"
-                  textColor="#000"
-                  iconColor="#fff"
-                  title="Hybrid heat pumps"
-                  subtitle="Installed from only 5,595"
-                  buttonText="Get your fixed price"
-                  image={serviceImage}
-                  backgroundImage
-                />
-              </div>
+                <div>
+                  <ModalCardStanderd
+                    backgroundColor="#E7F7F2"
+                    textColor="#000"
+                    iconColor="#fff"
+                    title="Hybrid heat pumps"
+                    subtitle="Installed from only 5,595"
+                    buttonText="Get your fixed price"
+                    image={activeButton === "evcharger" ? thunder : howitwork}
+                    imageWidth={activeButton === "evcharger" ? "50%" : "70%"}
+                  />
+                </div>
+                <div>
+                  <ModalCardStanderd
+                    backgroundColor="#E7F7F2"
+                    textColor="#000"
+                    iconColor="#fff"
+                    title="Hybrid heat pumps"
+                    subtitle="Installed from only 5,595"
+                    buttonText="Get your fixed price"
+                    image={serviceImage}
+                    backgroundImage
+                  />
+                </div>
+              </Slider>
             )}
           </div>
         </div>

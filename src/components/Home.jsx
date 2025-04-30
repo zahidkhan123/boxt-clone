@@ -21,6 +21,7 @@ import serviceImage from "../assets/serviceImage.avif";
 import solarbattry from "../assets/solarbattry.avif";
 import { HowItWorks } from "./HowItWork";
 import { useState, useEffect, useRef } from "react";
+import ReviewList from "./CustomerSay";
 const SCROLL_THRESHOLD = 200;
 function Home() {
   const [showBottomNav, setShowBottomNav] = useState(true);
@@ -159,6 +160,7 @@ function Home() {
         </div>
       </div>
       <BoxSteps />
+      <ReviewList />
       <PriceMatchSection />
       <Footer />
     </>

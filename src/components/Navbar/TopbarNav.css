@@ -20,9 +20,11 @@
   backdrop-filter: blur(40px);
   background-color: rgba(128, 128, 128, 0.7);
   z-index: 1050;
-  /* display: flex;
+  display: flex;
   justify-content: center;
-  align-items: center; */
+  align-items: center;
+  flex-direction: column;
+  padding: 0px 10px 0px 10px;
 }
 .topbar {
   backdrop-filter: blur(8px);
@@ -47,18 +49,18 @@
   text-decoration: underline;
 }
 .boiler-card {
-  background-color: #24303F; /* Dark blue background */
+  background-color: #24303f; /* Dark blue background */
   max-width: 700px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .boiler-card .btn-success {
-  background-color: #3DBB7D;
-  border-color: #3DBB7D;
+  background-color: #3dbb7d;
+  border-color: #3dbb7d;
 }
 
 .boiler-card .btn-light {
-  color: #24303F;
+  color: #24303f;
   background-color: #ffffff;
   border: none;
 }
