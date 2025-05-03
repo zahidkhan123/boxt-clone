@@ -20,6 +20,7 @@ import howitwork from "../../assets/howitwork.svg";
 import thunder from "../../assets/thunder.svg";
 import { IoIosArrowDown } from "react-icons/io";
 import Slider from "react-slick";
+import { ModalImageCard } from "../modalcards/ModalImageCard";
 
 const TopbarNav = () => {
   const [showModal, setShowModal] = useState(false);
@@ -168,16 +169,16 @@ const TopbarNav = () => {
               Get a fixed price <span className="ms-1">&#9662;</span>
             </button>
 
-            <button className="btn btn-link text-light fs-6 dropdown-toggle px-0">
+            <button className="btn btn-link text-light fs-6 dropdown-toggle px-0 d-none d-md-block">
               Advice & FAQs
             </button>
 
-            <button className="btn btn-link text-light fs-6 dropdown-toggle px-0">
+            <button className="btn btn-link text-light fs-6 dropdown-toggle px-0 d-none d-md-block">
               About BOXT
             </button>
           </div>
 
-          <button className="btn rounded-pill px-4 py-2 help-btn d-flex align-items-center gap-2 bg-white">
+          <button className="btn rounded-pill px-4 py-2 help-btn d-flex align-items-center gap-2 bg-white d-none d-md-flex">
             <span className="text-dark">Help</span>
             <span className="text-dark fs-5">❓</span>
           </button>
@@ -247,13 +248,14 @@ const TopbarNav = () => {
         // onClick={handleModalToggle}
         <div className="custom-modal-backdrop">
           <div
-            className="d-flex gap-3 justify-content-center align-items-center mt-2"
+            className="d-flex flex-nowrap  gap-3  align-items-center d-none d-md-flex"
             style={{ width: "93%" }}
           >
+            {" "}
             <button
               style={{
                 padding: "0px",
-                width: "21%",
+                width: "17%",
                 height: "60px",
                 color: activeButton === "boilers" ? "#606060" : "#fff",
                 backgroundColor:
@@ -261,6 +263,7 @@ const TopbarNav = () => {
                 position: "relative",
                 fontSize: "1.2rem",
                 fontWeight: "200",
+                flex: "0 0 auto",
               }}
               className="btn d-flex align-items-center"
               onClick={(e) => {
@@ -268,13 +271,18 @@ const TopbarNav = () => {
                 handleButtonClick("boilers");
               }}
             >
-              <img
-                src={boilers}
-                alt="Boiler"
-                className="me-3"
-                style={{ width: "90px", height: "60px" }}
-              />
-              Boilers
+              <div className="d-flex flex-column flex-md-row align-items-center">
+                <img
+                  src={boilers}
+                  alt="Boiler"
+                  className="me-md-3"
+                  style={{ width: "60px", height: "40px" }}
+                />
+                <span className="mt-2 mt-md-0" style={{ fontSize: "0.85rem" }}>
+                  {" "}
+                  Boilers
+                </span>
+              </div>
               {activeButton === "boilers" && (
                 <span
                   style={{
@@ -288,11 +296,10 @@ const TopbarNav = () => {
                 </span>
               )}
             </button>
-
             <button
               style={{
                 padding: "0px",
-                width: "21%",
+                width: "17%",
                 height: "60px",
                 color: activeButton === "heatpumps" ? "#606060" : "#fff",
                 backgroundColor:
@@ -300,6 +307,7 @@ const TopbarNav = () => {
                 position: "relative",
                 fontSize: "1.2rem",
                 fontWeight: "200",
+                flex: "0 0 auto",
               }}
               className="btn d-flex align-items-center"
               onClick={(e) => {
@@ -307,13 +315,18 @@ const TopbarNav = () => {
                 handleButtonClick("heatpumps");
               }}
             >
-              <img
-                src={heatPumps}
-                alt="Heat Pump"
-                className="me-3"
-                style={{ width: "90px", height: "60px" }}
-              />
-              Heat pumps
+              <div className="d-flex flex-column flex-md-row align-items-center">
+                <img
+                  src={heatPumps}
+                  alt="Heat Pump"
+                  className="me-md-3"
+                  style={{ width: "60px", height: "40px" }}
+                />
+                <span className="mt-2 mt-md-0" style={{ fontSize: "0.85rem" }}>
+                  {" "}
+                  Heat pumps
+                </span>
+              </div>
               {activeButton === "heatpumps" && (
                 <span
                   style={{
@@ -327,17 +340,17 @@ const TopbarNav = () => {
                 </span>
               )}
             </button>
-
             <button
               style={{
                 padding: "0px",
-                width: "21%",
+                width: "17%",
                 height: "60px",
                 color: activeButton === "solar" ? "#606060" : "#fff",
                 backgroundColor: activeButton === "solar" ? "#fff" : "#606060",
                 position: "relative",
                 fontSize: "1.2rem",
                 fontWeight: "200",
+                flex: "0 0 auto",
               }}
               className="btn d-flex align-items-center"
               onClick={(e) => {
@@ -345,13 +358,18 @@ const TopbarNav = () => {
                 handleButtonClick("solar");
               }}
             >
-              <img
-                src={solar}
-                alt="Solar"
-                className="me-3"
-                style={{ width: "90px", height: "60px" }}
-              />
-              Solar & battery
+              <div className="d-flex flex-column flex-md-row align-items-center">
+                <img
+                  src={solar}
+                  alt="Solar"
+                  className="me-md-3"
+                  style={{ width: "60px", height: "40px" }}
+                />
+                <span className="mt-2 mt-md-0" style={{ fontSize: "0.85rem" }}>
+                  {" "}
+                  Solar & battery
+                </span>
+              </div>
               {activeButton === "solar" && (
                 <span
                   style={{
@@ -365,17 +383,17 @@ const TopbarNav = () => {
                 </span>
               )}
             </button>
-
             <button
               style={{
                 padding: "0px",
-                width: "21%",
+                width: "17%",
                 height: "60px",
                 color: activeButton === "ac" ? "#606060" : "#fff",
                 backgroundColor: activeButton === "ac" ? "#fff" : "#606060",
                 position: "relative",
                 fontSize: "1.2rem",
                 fontWeight: "200",
+                flex: "0 0 auto",
               }}
               className="btn d-flex align-items-center"
               onClick={(e) => {
@@ -383,13 +401,18 @@ const TopbarNav = () => {
                 handleButtonClick("ac");
               }}
             >
-              <img
-                src={ac}
-                alt="AC"
-                className="me-3"
-                style={{ width: "90px", height: "60px" }}
-              />
-              Air conditioning
+              <div className="d-flex flex-column flex-md-row align-items-center">
+                <img
+                  src={ac}
+                  alt="AC"
+                  className="me-md-3"
+                  style={{ width: "60px", height: "40px" }}
+                />
+                <span className="mt-2 mt-md-0" style={{ fontSize: "0.85rem" }}>
+                  {" "}
+                  Air conditioning
+                </span>
+              </div>
               {activeButton === "ac" && (
                 <span
                   style={{
@@ -403,11 +426,10 @@ const TopbarNav = () => {
                 </span>
               )}
             </button>
-
             <button
               style={{
                 padding: "0px",
-                width: "21%",
+                width: "17%",
                 height: "60px",
                 color: activeButton === "evcharger" ? "#606060" : "#fff",
                 backgroundColor:
@@ -415,6 +437,7 @@ const TopbarNav = () => {
                 position: "relative",
                 fontSize: "1.2rem",
                 fontWeight: "200",
+                flex: "0 0 auto",
               }}
               className="btn d-flex align-items-center"
               onClick={(e) => {
@@ -422,13 +445,248 @@ const TopbarNav = () => {
                 handleButtonClick("evcharger");
               }}
             >
-              <img
-                src={evCharger}
-                alt="EV charger"
-                className="me-3"
-                style={{ width: "90px", height: "60px" }}
-              />
-              EV chargers
+              <div className="d-flex flex-column flex-md-row align-items-center">
+                <img
+                  src={evCharger}
+                  alt="EV charger"
+                  className="me-md-3"
+                  style={{ width: "60px", height: "40px" }}
+                />
+                <span className="mt-2 mt-md-0" style={{ fontSize: "0.85rem" }}>
+                  {" "}
+                  EV chargers
+                </span>
+              </div>
+              {activeButton === "evcharger" && (
+                <span
+                  style={{
+                    position: "absolute",
+                    bottom: "-20px",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                  }}
+                >
+                  <IoIosArrowDown size={24} />
+                </span>
+              )}
+            </button>
+          </div>
+          <div
+            className="d-md-none"
+            style={{
+              // overflowX: "auto",
+              whiteSpace: "nowrap",
+              display: "flex",
+              flexDirection: "row",
+              gap: "10px",
+              padding: "10px",
+            }}
+          >
+            <button
+              style={{
+                padding: "0px",
+                maxWidth: "150px",
+                height: "60px",
+                color: activeButton === "boilers" ? "#606060" : "#fff",
+                backgroundColor:
+                  activeButton === "boilers" ? "#fff" : "#606060",
+                position: "relative",
+                fontSize: "1.2rem",
+                fontWeight: "200",
+                flex: "0 0 auto",
+              }}
+              className="btn d-flex align-items-center"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleButtonClick("boilers");
+              }}
+            >
+              <div className="d-flex flex-column flex-md-row align-items-center">
+                <img
+                  src={boilers}
+                  alt="Boiler"
+                  className="me-md-3"
+                  style={{ width: "60px", height: "40px" }}
+                />
+                <span className="mt-2 mt-md-0" style={{ fontSize: "0.85rem" }}>
+                  {" "}
+                  Boilers
+                </span>
+              </div>
+              {activeButton === "boilers" && (
+                <span
+                  style={{
+                    position: "absolute",
+                    bottom: "-20px",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                  }}
+                >
+                  <IoIosArrowDown size={24} />
+                </span>
+              )}
+            </button>
+            <button
+              style={{
+                padding: "0px",
+                maxWidth: "150px",
+                height: "60px",
+                color: activeButton === "heatpumps" ? "#606060" : "#fff",
+                backgroundColor:
+                  activeButton === "heatpumps" ? "#fff" : "#606060",
+                position: "relative",
+                fontSize: "1.2rem",
+                fontWeight: "200",
+                flex: "0 0 auto",
+              }}
+              className="btn d-flex align-items-center"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleButtonClick("heatpumps");
+              }}
+            >
+              <div className="d-flex flex-column flex-md-row align-items-center">
+                <img
+                  src={heatPumps}
+                  alt="Heat Pump"
+                  className="me-md-3"
+                  style={{ width: "60px", height: "40px" }}
+                />
+                <span className="mt-2 mt-md-0" style={{ fontSize: "0.85rem" }}>
+                  {" "}
+                  Heat pumps
+                </span>
+              </div>
+              {activeButton === "heatpumps" && (
+                <span
+                  style={{
+                    position: "absolute",
+                    bottom: "-20px",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                  }}
+                >
+                  <IoIosArrowDown size={24} />
+                </span>
+              )}
+            </button>
+            <button
+              style={{
+                padding: "0px",
+                maxWidth: "150px",
+                height: "60px",
+                color: activeButton === "solar" ? "#606060" : "#fff",
+                backgroundColor: activeButton === "solar" ? "#fff" : "#606060",
+                position: "relative",
+                fontSize: "1.2rem",
+                fontWeight: "200",
+                flex: "0 0 auto",
+              }}
+              className="btn d-flex align-items-center"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleButtonClick("solar");
+              }}
+            >
+              <div className="d-flex flex-column flex-md-row align-items-center">
+                <img
+                  src={solar}
+                  alt="Solar"
+                  className="me-md-3"
+                  style={{ width: "60px", height: "40px" }}
+                />
+                <span className="mt-2 mt-md-0" style={{ fontSize: "0.85rem" }}>
+                  {" "}
+                  Solar & battery
+                </span>
+              </div>
+              {activeButton === "solar" && (
+                <span
+                  style={{
+                    position: "absolute",
+                    bottom: "-20px",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                  }}
+                >
+                  <IoIosArrowDown size={24} />
+                </span>
+              )}
+            </button>
+            <button
+              style={{
+                padding: "0px",
+                maxWidth: "150px",
+                height: "60px",
+                color: activeButton === "ac" ? "#606060" : "#fff",
+                backgroundColor: activeButton === "ac" ? "#fff" : "#606060",
+                position: "relative",
+                fontSize: "1.2rem",
+                fontWeight: "200",
+                flex: "0 0 auto",
+              }}
+              className="btn d-flex align-items-center"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleButtonClick("ac");
+              }}
+            >
+              <div className="d-flex flex-column flex-md-row align-items-center">
+                <img
+                  src={ac}
+                  alt="AC"
+                  className="me-md-3"
+                  style={{ width: "60px", height: "40px" }}
+                />
+                <span className="mt-2 mt-md-0" style={{ fontSize: "0.85rem" }}>
+                  {" "}
+                  Air conditioning
+                </span>
+              </div>
+              {activeButton === "ac" && (
+                <span
+                  style={{
+                    position: "absolute",
+                    bottom: "-20px",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                  }}
+                >
+                  <IoIosArrowDown size={24} />
+                </span>
+              )}
+            </button>
+            <button
+              style={{
+                padding: "0px",
+                maxWidth: "150px",
+                height: "60px",
+                color: activeButton === "evcharger" ? "#606060" : "#fff",
+                backgroundColor:
+                  activeButton === "evcharger" ? "#fff" : "#606060",
+                position: "relative",
+                fontSize: "1.2rem",
+                fontWeight: "200",
+                flex: "0 0 auto",
+              }}
+              className="btn d-flex align-items-center"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleButtonClick("evcharger");
+              }}
+            >
+              <div className="d-flex flex-column flex-md-row align-items-center">
+                <img
+                  src={evCharger}
+                  alt="EV charger"
+                  className="me-md-3"
+                  style={{ width: "60px", height: "40px" }}
+                />
+                <span className="mt-2 mt-md-0" style={{ fontSize: "0.85rem" }}>
+                  {" "}
+                  EV chargers
+                </span>
+              </div>
               {activeButton === "evcharger" && (
                 <span
                   style={{
@@ -451,188 +709,330 @@ const TopbarNav = () => {
               width: "93%",
             }}
           >
-            {activeButton === "boilers" && (
-              <Slider {...settings}>
-                <div>
-                  <ModalCardStanderd image={bolderNav} />
-                </div>
-                <div>
-                  <ModalCardStanderd
-                    backgroundColor="#e5fabb"
-                    textColor="#000"
-                    iconColor="#fff"
-                    title="All-inclusive boiler plan"
-                    subtitle="Get your fixed price today"
-                    buttonText="Get your fixed price"
-                  />
-                </div>
-                <div>
-                  <ModalCardStanderd
-                    image={boxtCar}
-                    backgroundColor="#fcf5f5"
-                    textColor="#000"
-                    iconColor="white"
-                    title="Book a repair"
-                    subtitle="Nect day repair visit for 89"
-                    minHeight="194px"
-                    maxWidth="285px"
-                    smallCard
-                  />
-                  <ModalCardStanderd
-                    backgroundColor="#fcf5f5"
-                    textColor="#000"
-                    iconColor="white"
-                    buttonText="Find out more"
-                    minHeight="194px"
-                    maxWidth="285px"
-                    marginTop="18px"
-                    smallCard
-                    backgroundImage
-                    image={serviceImage}
-                    title="Gas boiler service"
-                    subtitle="Protect your warrantly boiler servicing from HomeServe"
-                  />
-                </div>
+            <div style={{ width: "100%" }}>
+              {activeButton === "boilers" && (
+                <Slider {...settings}>
+                  <div>
+                    <ModalCardStanderd image={bolderNav} />
+                  </div>
+                  <div>
+                    <ModalCardStanderd
+                      backgroundColor="#e5fabb"
+                      textColor="#000"
+                      iconColor="#fff"
+                      title="All-inclusive boiler plan"
+                      subtitle="Get your fixed price today"
+                      buttonText="Get your fixed price"
+                    />
+                  </div>
+                  <div>
+                    <ModalCardStanderd
+                      image={boxtCar}
+                      backgroundColor="#fcf5f5"
+                      textColor="#000"
+                      iconColor="white"
+                      title="Book a repair"
+                      subtitle="Nect day repair visit for 89"
+                      minHeight="194px"
+                      maxWidth="285px"
+                      smallCard
+                    />
+                    <ModalImageCard
+                      backgroundColor="#fcf5f5"
+                      textColor="#fff"
+                      iconColor="white"
+                      buttonText="Find out more"
+                      minHeight="194px"
+                      maxWidth="285px"
+                      marginTop="18px"
+                      smallCard
+                      backgroundImage
+                      image={serviceImage}
+                      title="Gas boiler service"
+                      subtitle="Protect warrantly boiler servicing"
+                    />
+                  </div>
 
-                <div>
-                  <ModalCardStanderd
-                    image={boxtCar}
-                    backgroundColor="#fcf5f5"
-                    textColor="#000"
-                    iconColor="green"
-                    title="Flexible finance options"
-                    subtitle="12 to 120 month plans available"
-                    minHeight="194px"
-                    maxWidth="285px"
-                    smallCard
-                  />
-                  <ModalCardStanderd
-                    backgroundColor="#fcf5f5"
-                    textColor="#000"
-                    iconColor="#fff"
-                    title="Talk to a heating expert"
-                    subtitle="Help when you need it most"
-                    buttonText="Find out more"
-                    minHeight="194px"
-                    maxWidth="285px"
-                    image={serviceImage}
-                    marginTop="18px"
-                    smallCard
-                    backgroundImage
-                  />
-                </div>
-              </Slider>
-            )}
+                  <div>
+                    <ModalCardStanderd
+                      image={boxtCar}
+                      backgroundColor="#fcf5f5"
+                      textColor="#000"
+                      iconColor="green"
+                      title="Flexible finance options"
+                      subtitle="12 to 120 month plans available"
+                      minHeight="194px"
+                      maxWidth="285px"
+                      smallCard
+                    />
+                    <ModalImageCard
+                      // backgroundColor="#fcf5f5"
+                      textColor="#fff"
+                      iconColor="#fff"
+                      title="Talk to a heating expert"
+                      subtitle="Help when you need it most"
+                      buttonText="Find out more"
+                      minHeight="194px"
+                      maxWidth="285px"
+                      image={serviceImage}
+                      marginTop="18px"
+                      smallCard
+                      backgroundImage
+                    />
+                  </div>
+                </Slider>
+              )}
 
-            {(activeButton === "heatpumps" || activeButton === "solar") && (
-              <Slider {...settings2}>
-                <div>
-                  <ModalCardStanderd
-                    image={activeButton === "solar" ? solarBattry : modalAc}
-                    backgroundColor={
-                      activeButton === "solar" ? "#aae1ff" : "#00A56F"
-                    }
-                    textColor={activeButton === "solar" ? "#000" : "white"}
-                    iconColor={activeButton === "solar" ? "white" : "#000"}
-                    title={
-                      activeButton === "solar"
-                        ? "Solar & Battery"
-                        : "Heat pumps"
-                    }
-                    subtitle={
-                      activeButton === "solar"
-                        ? "Installed from only 3,799"
-                        : "Installed from only 5,595"
-                    }
-                    // buttonText="Get your fixed price"
-                    maxWidth="95%"
-                    fllWidth
-                    imageWidth="45%"
-                    // minHeight="300px"
-                  />
-                </div>
-                <div>
-                  <ModalCardStanderd
-                    backgroundColor="#E7F7F2"
-                    textColor="#000"
-                    iconColor="#fff"
-                    title="Hybrid heat pumps"
-                    subtitle="Installed from only 5,595"
-                    buttonText="Get your fixed price"
-                    image={battrystorage}
-                  />
-                </div>
-                <div>
-                  <ModalCardStanderd
-                    image={financeOption}
-                    backgroundColor="#fcf5f5"
-                    textColor="#000"
-                    iconColor="green"
-                    title="How the grant works"
-                    subtitle="Get 7,500 towards your heat pump"
-                    buttonText="Find out more"
-                    minHeight="194px"
-                    maxWidth="285px"
-                    smallCard
-                    imageWidth="100%"
-                  />
-                  <ModalCardStanderd
-                    backgroundColor="#fcf5f5"
-                    textColor="#000"
-                    iconColor="#fff"
-                    title="Talk to a heating expert"
-                    subtitle="Help when you need it most"
-                    buttonText="Find out more"
-                    minHeight="194px"
-                    maxWidth="285px"
-                    image={serviceImage}
-                    marginTop="18px"
-                    smallCard
-                    backgroundImage
-                  />
-                </div>
-              </Slider>
-            )}
-            {(activeButton === "ac" || activeButton === "evcharger") && (
-              <Slider {...settings2}>
-                <div style={{ width: "200%" }}>
-                  <ModalCardStanderd
-                    image={serviceImage}
-                    backgroundImage
-                    textColor={"#000"}
-                    iconColor={"#fff"}
-                    title={"Heat pumps"}
-                    subtitle={"Installed from only 5,595"}
-                    maxWidth="350%"
-                    fllWidth
-                  />
-                </div>
-                <div>
-                  <ModalCardStanderd
-                    backgroundColor="#E7F7F2"
-                    textColor="#000"
-                    iconColor="#fff"
-                    title="Hybrid heat pumps"
-                    subtitle="Installed from only 5,595"
-                    buttonText="Get your fixed price"
-                    image={activeButton === "evcharger" ? thunder : howitwork}
-                    imageWidth={activeButton === "evcharger" ? "50%" : "70%"}
-                  />
-                </div>
-                <div>
-                  <ModalCardStanderd
-                    backgroundColor="#E7F7F2"
-                    textColor="#000"
-                    iconColor="#fff"
-                    title="Hybrid heat pumps"
-                    subtitle="Installed from only 5,595"
-                    buttonText="Get your fixed price"
-                    image={serviceImage}
-                    backgroundImage
-                  />
-                </div>
-              </Slider>
-            )}
+              {(activeButton === "heatpumps" || activeButton === "solar") && (
+                <>
+                  {/* Desktop View */}
+                  <div
+                    className="d-none d-md-flex"
+                    style={{
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <div style={{ width: "50%" }}>
+                      <ModalCardStanderd
+                        image={activeButton === "solar" ? solarBattry : modalAc}
+                        backgroundColor={
+                          activeButton === "solar" ? "#aae1ff" : "#00A56F"
+                        }
+                        textColor={activeButton === "solar" ? "#000" : "white"}
+                        iconColor={activeButton === "solar" ? "white" : "#000"}
+                        title={
+                          activeButton === "solar"
+                            ? "Solar & Battery"
+                            : "Heat pumps"
+                        }
+                        subtitle={
+                          activeButton === "solar"
+                            ? "Installed from only 3,799"
+                            : "Installed from only 5,595"
+                        }
+                        maxWidth="100%"
+                        imageWidth="50%"
+                        fllWidth
+                      />
+                    </div>
+                    <div style={{ width: "25%" }}>
+                      <ModalCardStanderd
+                        backgroundColor="#E7F7F2"
+                        textColor="#000"
+                        iconColor="#fff"
+                        title="Hybrid heat pumps"
+                        subtitle="Installed from only 5,595"
+                        buttonText="Get your fixed price"
+                        image={battrystorage}
+                        maxWidth="100%"
+                      />
+                    </div>
+                    <div style={{ width: "23%" }}>
+                      <div style={{ marginBottom: "10px" }}>
+                        <ModalCardStanderd
+                          image={financeOption}
+                          backgroundColor="#fcf5f5"
+                          textColor="#000"
+                          iconColor="green"
+                          title="How the grant works"
+                          subtitle="Get 7,500 towards your heat pump"
+                          buttonText="Find out more"
+                          minHeight="193px"
+                          maxWidth="100%"
+                          smallCard
+                          imageWidth="100%"
+                        />
+                      </div>
+                      <ModalImageCard
+                        backgroundColor="#fcf5f5"
+                        textColor="#fff"
+                        iconColor="#fff"
+                        title="Talk to a heating expert"
+                        subtitle="Help when you need it most"
+                        buttonText="Find out more"
+                        minHeight="200px"
+                        maxWidth="100%"
+                        image={serviceImage}
+                        smallCard
+                        backgroundImage
+                      />
+                    </div>
+                  </div>
+
+                  {/* Mobile/Tablet View */}
+                  <div className="d-md-none">
+                    <Slider {...settings}>
+                      <div>
+                        <ModalCardStanderd
+                          image={
+                            activeButton === "solar" ? solarBattry : modalAc
+                          }
+                          backgroundColor={
+                            activeButton === "solar" ? "#aae1ff" : "#00A56F"
+                          }
+                          textColor={
+                            activeButton === "solar" ? "#000" : "white"
+                          }
+                          iconColor={
+                            activeButton === "solar" ? "white" : "#000"
+                          }
+                          title={
+                            activeButton === "solar"
+                              ? "Solar & Battery"
+                              : "Heat pumps"
+                          }
+                          subtitle={
+                            activeButton === "solar"
+                              ? "Installed from only 3,799"
+                              : "Installed from only 5,595"
+                          }
+                          maxWidth="100%"
+                          imageWidth="73%"
+                          responsive
+                        />
+                      </div>
+                      <div>
+                        <ModalCardStanderd
+                          backgroundColor="#E7F7F2"
+                          textColor="#000"
+                          iconColor="#fff"
+                          title="Hybrid heat pumps"
+                          subtitle="Installed from only 5,595"
+                          buttonText="Get your fixed price"
+                          image={battrystorage}
+                          maxWidth="100%"
+                          imageWidth="65%"
+                        />
+                      </div>
+                      <ModalCardStanderd
+                        image={financeOption}
+                        backgroundColor="#fcf5f5"
+                        textColor="#000"
+                        iconColor="green"
+                        title="How the grant works"
+                        subtitle="Get 7,500 towards your heat pump"
+                        buttonText="Find out more"
+                        maxWidth="100%"
+                        imageWidth="100%"
+                      />
+
+                      <ModalImageCard
+                        backgroundColor="#fcf5f5"
+                        textColor="#fff"
+                        iconColor="#fff"
+                        title="Talk to a heating expert"
+                        subtitle="Help when you need it most"
+                        buttonText="Find out more"
+                        maxWidth="100%"
+                        image={serviceImage}
+                        backgroundImage
+                      />
+                    </Slider>
+                  </div>
+                </>
+              )}
+              {(activeButton === "ac" || activeButton === "evcharger") && (
+                <>
+                  <div
+                    className="d-none d-md-flex"
+                    style={{
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <div style={{ width: "50%" }}>
+                      <ModalImageCard
+                        image={serviceImage}
+                        backgroundImage
+                        textColor={"#fff"}
+                        iconColor={"#fff"}
+                        title={"Heat pumps"}
+                        subtitle={"Installed from only 5,595"}
+                        maxWidth="100%"
+                        fllWidth
+                      />
+                    </div>
+                    <div style={{ width: "25%" }}>
+                      <ModalCardStanderd
+                        backgroundColor="#E7F7F2"
+                        textColor="#000"
+                        iconColor="#fff"
+                        title="Hybrid heat pumps"
+                        subtitle="Installed from only 5,595"
+                        buttonText="Get your fixed price"
+                        image={
+                          activeButton === "evcharger" ? thunder : howitwork
+                        }
+                        imageWidth={
+                          activeButton === "evcharger" ? "50%" : "70%"
+                        }
+                      />
+                    </div>
+                    <div style={{ width: "25%" }}>
+                      <ModalImageCard
+                        // backgroundColor="#E7F7F2"
+                        textColor="#fff"
+                        iconColor="#fff"
+                        title="Hybrid heat pumps"
+                        subtitle="Installed from only 5,595"
+                        buttonText="Get your fixed price"
+                        image={serviceImage}
+                        backgroundImage
+                      />
+                    </div>
+                  </div>
+                  {/* Mobile/Tablet View */}
+                  <div className="d-md-none">
+                    <Slider {...settings}>
+                      <div>
+                        <ModalImageCard
+                          image={serviceImage}
+                          backgroundImage
+                          textColor={"#fff"}
+                          iconColor={"#fff"}
+                          title={"Heat pumps"}
+                          subtitle={"Installed from only 5,595"}
+                          maxWidth="100%"
+                        />
+                      </div>
+                      <div>
+                        <ModalCardStanderd
+                          backgroundColor="#E7F7F2"
+                          textColor="#000"
+                          iconColor="#fff"
+                          title="Hybrid heat pumps"
+                          subtitle="Installed from only 5,595"
+                          buttonText="Get your fixed price"
+                          image={
+                            activeButton === "evcharger" ? thunder : howitwork
+                          }
+                          imageWidth={
+                            activeButton === "evcharger" ? "40%" : "65%"
+                          }
+                          maxWidth="100%"
+                        />
+                      </div>
+                      <div>
+                        <ModalImageCard
+                          // backgroundColor="#E7F7F2"
+                          textColor="#fff"
+                          iconColor="#fff"
+                          title="Hybrid heat pumps"
+                          subtitle="Installed from only 5,595"
+                          buttonText="Get your fixed price"
+                          image={serviceImage}
+                          backgroundImage
+                          maxWidth="100%"
+                        />
+                      </div>
+                    </Slider>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
         </div>
       )}

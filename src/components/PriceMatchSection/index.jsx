@@ -15,7 +15,7 @@ const PriceMatchSection = () => {
               src={priceMatchImage}
               alt="Boiler"
               className="img-fluid"
-              style={{ maxWidth: "550px", height: "auto" }} // Increased image size
+              style={{ maxWidth: "100%", height: "auto", width: "300px" }} // Reduced size for mobile
             />
           </div>
 

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { BsCheckCircleFill } from "react-icons/bs";
 
-export const ModalCardStanderd = ({
+export const ModalImageCard = ({
   backgroundColor = "#Fb6058",
   image = boilerPlan,
   title = "Buy a new boiler",
@@ -12,12 +12,11 @@ export const ModalCardStanderd = ({
   iconColor = "#F08080",
   textColor = "white",
   minHeight = "410px",
-  maxWidth = "330px",
+  maxWidth = "100%",
   marginTop = "0px",
   smallCard = false,
   check = false,
   backgroundImage = false,
-  fllWidth = false,
   imageWidth = "70%",
 }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -38,14 +37,15 @@ export const ModalCardStanderd = ({
         maxWidth: maxWidth,
         margin: "0 auto",
         marginTop: marginTop,
-        backgroundImage: backgroundImage ? `url(${image})` : "none",
+        backgroundImage: backgroundImage
+          ? `linear-gradient(360deg, rgba(0, 27, 39, 0.71) 20%, rgba(45, 61, 77, 0) 70%), url(${image})`
+          : "none",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        opacity: backgroundImage ? 0.4 : 1,
-        boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+        opacity: backgroundImage ? 1 : 1,
+        // boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
         transition: "all 0.3s ease",
         cursor: "pointer",
-        border: "1px solid rgba(0,0,0,0.1)",
         "&:hover": {
           transform: "translateY(-2px)",
           boxShadow: "0 6px 12px rgba(0,0,0,0.15)",
@@ -81,22 +81,28 @@ export const ModalCardStanderd = ({
         <div
           style={{
             position: "absolute",
-            bottom: backgroundImage
-              ? "15px"
-              : smallCard
-              ? isHovered
-                ? "-100px"
-                : "-130px"
-              : fllWidth
-              ? isHovered
-                ? "-85px"
-                : "-150px"
-              : isHovered
-              ? "-178px"
-              : "-240px",
+            top:
+              backgroundImage && smallCard
+                ? isHovered
+                  ? "70px"
+                  : "100px"
+                : backgroundImage
+                ? isHovered
+                  ? "225px"
+                  : "290px"
+                : "auto",
+            // top: backgroundImage
+            //   ? isHovered
+            //     ? "220px"
+            //     : "300px"
+            //   : smallCard
+            //   ? isHovered
+            //     ? "-220px"
+            //     : "-204px"
+            //   : "auto",
             left: "15px",
             color: textColor,
-            transition: "bottom 0.3s ease, transform 0.3s ease",
+            transition: "top 0.3s ease, transform 0.3s ease",
             transform: isHovered ? "translateY(-5px)" : "translateY(0)",
             display: "flex",
             flexDirection: "column",
