@@ -14,7 +14,7 @@ import modalAc from "../../assets/modalAc.png";
 import solarBattry from "../../assets/solar&battry.png";
 import video from "../../assets/boxtvideo.mp4";
 import { FaCheckCircle } from "react-icons/fa";
-import battrystorage from "../../assets/battrystorage.avif";
+import battrystorage from "../../assets/batteryStorage.png";
 import howitwork from "../../assets/howitwork.svg";
 import thunder from "../../assets/thunder.svg";
 import { IoIosArrowDown } from "react-icons/io";
