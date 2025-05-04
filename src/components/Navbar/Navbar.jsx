@@ -224,7 +224,7 @@ const TopbarNav = () => {
 
       {showModal && (
         // onClick={handleModalToggle}
-        <div className="custom-modal-backdrop">
+        <div className="custom-modal-backdrop" onClick={handleModalToggle}>
           <div
             className="d-flex flex-nowrap  gap-3  align-items-center d-none d-md-flex"
             style={{ width: "93%" }}
@@ -458,6 +458,7 @@ const TopbarNav = () => {
               flexDirection: "row",
               gap: "10px",
               padding: "10px",
+              marginTop: "-28%",
             }}
           >
             <button

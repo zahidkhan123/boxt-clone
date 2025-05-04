@@ -25,6 +25,7 @@
   align-items: center;
   flex-direction: column;
   padding: 0px 10px 0px 10px;
+  margin-top: 15px;
 }
 .topbar {
   backdrop-filter: blur(8px);
