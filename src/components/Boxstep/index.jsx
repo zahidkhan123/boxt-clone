@@ -1,5 +1,5 @@
 import React from "react";
-import "./BoxSteps.css"; // Optional custom styles if needed
+// import ".";
 import discoverImg from "../../assets/discover.avif";
 import chooseImg from "../../assets/choose.avif";
 import installImg from "../../assets/install.avif";
