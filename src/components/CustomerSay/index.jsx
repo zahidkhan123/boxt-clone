@@ -1,20 +1,21 @@
 import React from "react";
+import { AiFillStar } from "react-icons/ai";
 import Slider from "react-slick";
 
 const reviews = [
   {
     rating: 5,
-    title: "Wing Lee arrived this morning …",
-    body: `Wing Lee arrived this morning at 8am. Our system was fixed by 8:30am. Really nice man! They were professional and efficient, and handled all issues promptly. Would highly recommend!`,
-    author: "Chloe Wilson",
-    time: "4 hours ago",
+    title: "Conventional to combi",
+    body: `i had my old, conventional bolier changed to a combi/ it was uch more affordable thr...`,
+    author: "Molly",
+    time: "8 minutes ago",
   },
   {
     rating: 4,
-    title: "Great Service!",
-    body: "Had a quick response, and the system was back online in no time. Staff were friendly and very helpful, happy with the overall experience.",
-    author: "John Doe",
-    time: "2 days ago",
+    title: "Excellent service.",
+    body: "Excellent service.",
+    author: "customernewman",
+    time: "10 minutes ago",
   },
   {
     rating: 3,
@@ -40,7 +41,7 @@ const StarRating = ({ rating }) => {
   return (
     <div className="mb-2">
       {[...Array(rating)].map((_, index) => (
-        <i key={index} className="bi bi-star-fill text-success me-1"></i>
+        <AiFillStar key={index} className="text-success me-1" />
       ))}
     </div>
   );
@@ -51,14 +52,25 @@ const ReviewCard = ({ review }) => {
 
   return (
     <div
-      className="card mx-2"
-      style={{ maxWidth: "300px", minHeight: "250px" }}
+      className="card mx-2 border-0"
+      style={{
+        maxWidth: "300px",
+        minHeight: "200px",
+        backgroundColor: "#F8F9FA",
+        boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+        display: "flex",
+        flexDirection: "column",
+      }}
     >
-      <div className="card-body">
+      <div className="card-body d-flex flex-column">
         <StarRating rating={review.rating} />
-        <h6 className="card-title fw-bold">{review.title}</h6>
-        <p className="card-text mb-2">{bodyText}</p>
-        <small className="text-muted">
+        <p className="card-title fw-bold" style={{ fontSize: "0.9rem" }}>
+          {review.title}
+        </p>
+        <p className="card-text" style={{ fontSize: "0.85rem" }}>
+          {bodyText}
+        </p>
+        <small className="text-muted mt-auto">
           <strong>{review.author}</strong>, {review.time}
         </small>
       </div>
