@@ -15,7 +15,7 @@ import BottomNav from "./bottomNav/BottomNav";
 import Navbar from "./Navbar/Navbar";
 import airConditioningImage from "../assets/airConditinoning.avif";
 import batteryStorageImage from "../assets/batteryStorage.png";
-import boilerServicingImage from "../assets/boilerServer.avif";
+import boilerServicingImage from "../assets/boilerserver.avif";
 import electricVehicleImage from "../assets/electricvehiclecharger.avif";
 import serviceImage from "../assets/serviceImage.avif";
 import solarbattry from "../assets/solarbattry.avif";
