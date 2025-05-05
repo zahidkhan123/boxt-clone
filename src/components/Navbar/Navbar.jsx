@@ -179,7 +179,7 @@ const TopbarNav = () => {
         </div>
 
         {/* Video and Boiler Card */}
-        <div className="row">
+        <div>
           <div className="col-12 position-relative">
             <video
               className="w-100"
