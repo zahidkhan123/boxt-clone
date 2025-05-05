@@ -77,7 +77,6 @@ const ReviewCard = ({ review }) => {
     </div>
   );
 };
-
 const ReviewList = () => {
   const settings = {
     dots: true,
@@ -85,6 +84,17 @@ const ReviewList = () => {
     speed: 500,
     slidesToShow: 4, // Adjust based on screen size
     slidesToScroll: 1,
+    customPaging: () => (
+      <div
+        style={{
+          width: "12px",
+          height: "12px",
+          background: "black",
+          borderRadius: "50%",
+          margin: "15px 10px",
+        }}
+      />
+    ),
     responsive: [
       {
         breakpoint: 768, // Mobile
