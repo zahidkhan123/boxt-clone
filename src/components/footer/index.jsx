@@ -63,7 +63,7 @@ const Footer = () => {
           </div>
           <div className="col-md-4">
             <div className="row">
-              <div className="col-12 col-md-4 mb-4">
+              <div className="col-6 col-md-4 mb-4">
                 {[
                   "FAQs",
                   "Contact us",
@@ -83,7 +83,7 @@ const Footer = () => {
                   </p>
                 ))}
               </div>
-              <div className="col-12 col-md-4 mb-4">
+              <div className="col-6 col-md-4 mb-4">
                 {[
                   "Refer a friend",
                   "Cookies policy",

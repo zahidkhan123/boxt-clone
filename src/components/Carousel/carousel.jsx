@@ -51,7 +51,19 @@ export const CarouselSlider = () => {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          arrows: false,
+          autoplay: true,
+          autoplaySpeed: 2000,
+          pauseOnHover: true,
+        },
+      },
+      {
+        breakpoint: 350,
+        settings: {
+          slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
           arrows: false,

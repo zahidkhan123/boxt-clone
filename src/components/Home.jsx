@@ -22,6 +22,7 @@ import solarbattry from "../assets/solarbattry.avif";
 import { HowItWorks } from "./HowItWork";
 import { useState, useEffect, useRef } from "react";
 import ReviewList from "./CustomerSay";
+import ReviewImage from "../assets/reviews.png";
 const SCROLL_THRESHOLD = 200;
 function Home() {
   const [showBottomNav, setShowBottomNav] = useState(true);
@@ -54,16 +55,18 @@ function Home() {
   }, []);
 
   return (
-    <>
+    <div>
       <Navbar />
       {showBottomNav && <BottomNav />}
-
+      <div className="mt-5 d-none d-sm-flex justify-content-center">
+        <img src={ReviewImage} alt="reviews" style={{ width: "30%" }} />
+      </div>
       {/* Rest of the component remains unchanged */}
       <div className="mt-5">
         <h2 className="text-center text-dark">Our partners</h2>
         <CarouselSlider />
       </div>
-      <div className="container d-flex justify-content-center">
+      <div className="container d-flex justify-content-center px-4">
         <div className="row">
           <div className="col-md-6">
             <ServiceCard
@@ -71,7 +74,7 @@ function Home() {
               description="A-rated boilers installed from £1,795, including up to 10 year manufacturer backed warranties"
               image={boilerImage2}
               button1Text="Get a fixed price"
-              button2Text="Find out more"
+              button2Text="Get a fixed price"
               buttonTextColor="black"
               buttonColor="white"
               backgroundColor="#Fb6058"
@@ -82,7 +85,7 @@ function Home() {
           </div>
           <div className="col-md-6">
             <ServiceCard
-              title="All-inclusive worry-free boiler plan"
+              title="All-inclusive boiler plan"
               backgroundColor="#F5F7F9"
               description="New boiler + annual servicing + unlimited repairs or replacement from only £33.35 a month"
               image={boilerImage}
@@ -163,7 +166,7 @@ function Home() {
       <ReviewList />
       <PriceMatchSection />
       <Footer />
-    </>
+    </div>
   );
 }
 

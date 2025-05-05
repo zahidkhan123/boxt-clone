@@ -44,9 +44,9 @@ export const ServiceCard = ({
           ? getHoverBackgroundColor()
           : backgroundColor,
         margin: "auto",
-        minHeight: "70vh",
+        // minHeight: "70vh",
         height: "auto",
-        padding: "0px 30px",
+        padding: "0px 10px",
         transition: "background-color 0.3s ease",
       }}
     >
@@ -55,10 +55,12 @@ export const ServiceCard = ({
         alt="card visual"
         className="card-img-top mx-auto mb-4"
         style={{
-          width: "100%",
-          height: "300px",
+          // width: "100%",
+          // height: "300px",
           objectFit: "contain",
-          maxWidth: "350px",
+          // maxWidth: "350px",
+          aspectRatio: "2/1",
+          marginTop: "20px",
         }}
       />
       <div className="card-body d-flex flex-column text-start justify-content-end">

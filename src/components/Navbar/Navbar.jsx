@@ -74,7 +74,7 @@ const TopbarNav = () => {
       <div className="container-fluid px-0 position-relative">
         {/* Animated Text Slider */}
         <div
-          className="position-absolute w-100 text-center"
+          className="position-absolute text-center"
           style={{
             zIndex: 1000,
             background:
@@ -82,6 +82,7 @@ const TopbarNav = () => {
             color: "white",
             marginBottom: "20px",
             padding: "5px 0",
+            width: "100%",
           }}
         >
           <div className="container py-1">
@@ -138,27 +139,42 @@ const TopbarNav = () => {
           }}
         >
           <div className="d-flex align-items-center gap-5">
-            <span className="brand fs-1 text-white">B O X T</span>
+            <span
+              className="brand text-white"
+              style={{ fontSize: "clamp(1.5rem, 4vw, 2.5rem)" }}
+            >
+              B O X T
+            </span>
 
             <button
-              className="btn btn-light rounded-pill px-4 py-3 fs-6 text-dark"
+              className="btn btn-light rounded-pill px-3 py-2 text-dark"
+              style={{ fontSize: "clamp(0.875rem, 2vw, 1rem)" }}
               onClick={handleModalToggle}
             >
               Get a fixed price <span className="ms-1">&#9662;</span>
             </button>
 
-            <button className="btn btn-link text-light fs-6 dropdown-toggle px-0 d-none d-md-block">
+            <button
+              className="btn btn-link text-light dropdown-toggle px-0 d-none d-md-block"
+              style={{ fontSize: "clamp(0.875rem, 2vw, 1rem)" }}
+            >
               Advice & FAQs
             </button>
 
-            <button className="btn btn-link text-light fs-6 dropdown-toggle px-0 d-none d-md-block">
+            <button
+              className="btn btn-link text-light dropdown-toggle px-0 d-none d-md-block"
+              style={{ fontSize: "clamp(0.875rem, 2vw, 1rem)" }}
+            >
               About BOXT
             </button>
           </div>
 
-          <button className="btn rounded-pill px-4 py-2 help-btn d-flex align-items-center gap-2 bg-white d-none d-md-flex">
+          <button
+            className="btn rounded-pill px-3 py-2 help-btn d-flex align-items-center gap-2 bg-white d-none d-md-flex"
+            style={{ fontSize: "clamp(0.875rem, 2vw, 1rem)" }}
+          >
             <span className="text-dark">Help</span>
-            <span className="text-dark fs-5">❓</span>
+            <span className="text-dark">❓</span>
           </button>
         </div>
 
@@ -185,8 +201,8 @@ const TopbarNav = () => {
               }}
             >
               <div
-                className="boiler-card p-5 rounded-4 text-white"
-                style={{ maxWidth: "1000px" }}
+                className="boiler-card p-4 rounded-4 text-white sm:ml-5"
+                style={{ maxWidth: "1000px", marginLeft: "25px" }}
               >
                 <h2
                   className="fw-bold mb-4 text-start"
